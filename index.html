@@ -1112,22 +1112,33 @@
                                 <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4">Present Simple <span class="text-indigo-300">vs</span> Continuous</h2>
                                 <p class="text-indigo-100 max-w-xl text-lg leading-relaxed">Aprende a diferenciar entre tus hábitos diarios y lo que está ocurriendo justo en este preciso instante.</p>
                             </div>
-                            <div class="flex gap-4">
-                                <button onclick="showSection('vocab', 1)" class="flex items-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span class="font-bold">Vocabulary</span>
-                                </button>
-                                <button onclick="initFlashcards(1)" class="px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-200">
-                                    <span class="font-bold">Flashcard</span>
-                                </button>
-                                <button onclick="startPracticeSession(1)" class="px-8 py-4 bg-amber-500 border border-amber-400/30 rounded-2xl font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-900/20">
-                                    <i class="fas fa-pen-nib mr-2"></i>Practicar esta Unidad
-                                </button>
-                            </div>
-                        </div>    
-                        <div class="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 w-96 h-96 bg-indigo-500 rounded-full opacity-50"></div>
-                    </div>
 
+                         <!-- BOTONES CORREGIDOS PARA MÓVIL -->
+                       <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full sm:w-auto">
+                        <button onclick="showSection('vocab', 1)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20 w-full sm:w-auto">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="font-bold">Vocabulary</span>
+                        </button>
+                        
+                        <button onclick="initFlashcards(1)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-900/20 transition-all w-full sm:w-auto">
+                            <i class="fas fa-bolt"></i>
+                            <span class="font-bold">Flashcard</span>
+                        </button>
+                        
+                         <button onclick="startPracticeSession(1)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-amber-900/20 w-full sm:w-auto">
+                            <i class="fas fa-pen-nib"></i>
+                            <span>Practicar Unidad</span>
+                        </button>
+                    </div>
+                </div>    
+                
+                <!-- Decoración de fondo optimizada -->
+                <div class="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 w-64 h-64 md:w-96 md:h-96 bg-indigo-500 rounded-full opacity-30 blur-3xl"></div>
+                <div class="absolute left-0 top-0 -translate-x-1/4 -translate-y-1/4 w-48 h-48 bg-blue-400 rounded-full opacity-20 blur-2xl"></div>
+            </div>
                     <!-- Comparativa de Uso -->
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm grammar-card">
@@ -1282,21 +1293,28 @@
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4">Stative Verbs</h2>
                             <p class="text-amber-50 max-w-2xl text-lg leading-relaxed italic">"Los verbos que se sienten, pero no se mueven". Por qué algunos verbos odian el -ING.</p>
                         </div>
-                         <div class="flex gap-4">
-                                <button onclick="showSection('vocab', 2)" class="flex items-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span class="font-bold">Vocabulary</span>
-                                </button>
-                                <button onclick="initFlashcards(2)" class="px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-200">
-                                    <span class="font-bold">Flashcard</span>
-                                </button>
-                                <button onclick="startPracticeSession(2)" class="px-8 py-4 bg-amber-500 border border-amber-400/30 rounded-2xl font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-900/20">
-                                    <i class="fas fa-pen-nib mr-2"></i>Practicar esta Unidad
-                                </button>
-                            </div>
-                        </div>
-                        <i class="fas fa-brain absolute right-10 top-1/2 -translate-y-1/2 text-9xl text-white/10"></i>
+                                  <!-- BOTONES CORREGIDOS PARA MÓVIL -->
+                       <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full sm:w-auto">
+                        <button onclick="showSection('vocab', 2)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20 w-full sm:w-auto">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="font-bold">Vocabulary</span>
+                        </button>
+                        
+                        <button onclick="initFlashcards(2)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-900/20 transition-all w-full sm:w-auto">
+                            <i class="fas fa-bolt"></i>
+                            <span class="font-bold">Flashcard</span>
+                        </button>
+                        
+                         <button onclick="startPracticeSession(2)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-amber-900/20 w-full sm:w-auto">
+                            <i class="fas fa-pen-nib"></i>
+                            <span>Practicar Unidad</span>
+                        </button>
                     </div>
+                </div>    
+                
 
                     <!-- La Explicación -->
                     <section class="bg-white dark:bg-slate-900 p-10 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm">
@@ -1432,22 +1450,28 @@
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Past Simple</h2>
                             <p class="text-emerald-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Aprende a narrar tus experiencias pasadas con fluidez.</p>
                         </div>
-                        <div class="flex gap-4">
-                                <button onclick="showSection('vocab', 3)" class="flex items-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span class="font-bold">Vocabulary</span>
-                                </button>
-                                <button onclick="initFlashcards(3)" class="px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-200">
-                                    <span class="font-bold">Flashcard</span>
-                                </button>
-                                <button onclick="startPracticeSession(3)" class="px-8 py-4 bg-amber-500 border border-amber-400/30 rounded-2xl font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-900/20">
-                                    <i class="fas fa-pen-nib mr-2"></i>Practicar esta Unidad
-                                </button>
-                            </div>
-                             </div>
-                        <i class="fas fa-history absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-7xl md:text-9xl text-white/10"></i>
+                         <!-- BOTONES CORREGIDOS PARA MÓVIL -->
+                       <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full sm:w-auto">
+                        <button onclick="showSection('vocab', 1)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20 w-full sm:w-auto">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="font-bold">Vocabulary</span>
+                        </button>
+                        
+                        <button onclick="initFlashcards(1)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-900/20 transition-all w-full sm:w-auto">
+                            <i class="fas fa-bolt"></i>
+                            <span class="font-bold">Flashcard</span>
+                        </button>
+                        
+                         <button onclick="startPracticeSession(1)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-amber-900/20 w-full sm:w-auto">
+                            <i class="fas fa-pen-nib"></i>
+                            <span>Practicar Unidad</span>
+                        </button>
                     </div>
-
+                </div>    
+                
                     <!-- Cuándo se usa -->
                     <section class="bg-white dark:bg-slate-900 p-6 md:p-10 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm">
                         <h3 class="text-xl md:text-2xl font-bold mb-4 flex items-center gap-3">
@@ -1583,21 +1607,28 @@
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Past Continuous</h2>
                             <p class="text-blue-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Describe acciones en progreso en el pasado y cómo se relacionan con otros eventos.</p>
                         </div>
-                        <div class="flex gap-4">
-                                <button onclick="showSection('vocab', 4)" class="flex items-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span class="font-bold">Vocabulary</span>
-                                </button>
-                                <button onclick="initFlashcards(4)" class="px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-200">
-                                    <span class="font-bold">Flashcard</span>
-                                </button>
-                                <button onclick="startPracticeSession(4)" class="px-8 py-4 bg-amber-500 border border-amber-400/30 rounded-2xl font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-900/20">
-                                    <i class="fas fa-pen-nib mr-2"></i>Practicar esta Unidad
-                                </button>
-                            </div>
-                            </div>
-                        <i class="fas fa-spinner absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-7xl md:text-9xl text-white/10 animate-spin-slow"></i>
+                          <!-- BOTONES CORREGIDOS PARA MÓVIL -->
+                       <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full sm:w-auto">
+                        <button onclick="showSection('vocab', 4)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20 w-full sm:w-auto">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="font-bold">Vocabulary</span>
+                        </button>
+                        
+                        <button onclick="initFlashcards(4)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-900/20 transition-all w-full sm:w-auto">
+                            <i class="fas fa-bolt"></i>
+                            <span class="font-bold">Flashcard</span>
+                        </button>
+                        
+                         <button onclick="startPracticeSession(4)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-amber-900/20 w-full sm:w-auto">
+                            <i class="fas fa-pen-nib"></i>
+                            <span>Practicar Unidad</span>
+                        </button>
                     </div>
+                </div>    
+                
 
                     <!-- ¿Qué es? -->
                     <section class="bg-white dark:bg-slate-900 p-6 md:p-10 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm">
@@ -1773,21 +1804,28 @@
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Comparative & Superlative Adverbs</h2>
                             <p class="text-purple-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Aprende a describir CÓMO se realizan las acciones con mayor o menor intensidad.</p>
                         </div>
-                         <div class="flex gap-4">
-                                <button onclick="showSection('vocab', 5)" class="flex items-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span class="font-bold">Vocabulary</span>
-                                </button>
-                               <button onclick="initFlashcards(5)" class="px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-200">
-                                    <span class="font-bold">Flashcard</span>
-                                </button>
-                                <button onclick="startPracticeSession(5)" class="px-8 py-4 bg-amber-500 border border-amber-400/30 rounded-2xl font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-900/20">
-                                    <i class="fas fa-pen-nib mr-2"></i>Practicar esta Unidad
-                                </button>
-                            </div>
-                            </div>
-                        <i class="fas fa-bolt absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-7xl md:text-9xl text-white/10 opacity-30"></i>
+                          <!-- BOTONES CORREGIDOS PARA MÓVIL -->
+                       <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full sm:w-auto">
+                        <button onclick="showSection('vocab', 5)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20 w-full sm:w-auto">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="font-bold">Vocabulary</span>
+                        </button>
+                        
+                        <button onclick="initFlashcards(5)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-900/20 transition-all w-full sm:w-auto">
+                            <i class="fas fa-bolt"></i>
+                            <span class="font-bold">Flashcard</span>
+                        </button>
+                        
+                         <button onclick="startPracticeSession(5)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-amber-900/20 w-full sm:w-auto">
+                            <i class="fas fa-pen-nib"></i>
+                            <span>Practicar Unidad</span>
+                        </button>
                     </div>
+                </div>    
+                
 
                     <!-- Explicación -->
                     <section class="bg-white dark:bg-slate-900 p-6 md:p-10 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm">
@@ -1913,21 +1951,28 @@
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Possession & Ownership</h2>
                             <p class="text-rose-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">¿A quién pertenece? Aprende el uso de adjetivos, pronombres y el genitivo sajón.</p>
                         </div>
-                        <div class="flex gap-4">
-                                <button onclick="showSection('vocab', 6)" class="flex items-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span class="font-bold">Vocabulary</span>
-                                </button>
-                                <button onclick="initFlashcards(6)" class="px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-200">
-                                    <span class="font-bold">Flashcard</span>
-                                </button>
-                                <button onclick="startPracticeSession(6)" class="px-8 py-4 bg-amber-500 border border-amber-400/30 rounded-2xl font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-900/20">
-                                    <i class="fas fa-pen-nib mr-2"></i>Practicar esta Unidad
-                                </button>
-                            </div>
-                             </div>
-                        <i class="fas fa-key absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-7xl md:text-9xl text-white/10 opacity-30"></i>
+                         <!-- BOTONES CORREGIDOS PARA MÓVIL -->
+                       <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full sm:w-auto">
+                        <button onclick="showSection('vocab', 6)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20 w-full sm:w-auto">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="font-bold">Vocabulary</span>
+                        </button>
+                        
+                        <button onclick="initFlashcards(6)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-900/20 transition-all w-full sm:w-auto">
+                            <i class="fas fa-bolt"></i>
+                            <span class="font-bold">Flashcard</span>
+                        </button>
+                        
+                         <button onclick="startPracticeSession(6)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-amber-900/20 w-full sm:w-auto">
+                            <i class="fas fa-pen-nib"></i>
+                            <span>Practicar Unidad</span>
+                        </button>
                     </div>
+                </div>    
+                
 
                     <!-- Explicación Genitivo Sajón -->
                     <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -2066,21 +2111,28 @@
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Present Continuous for Future</h2>
                             <p class="text-cyan-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">No solo sirve para lo que pasa "ahora". Aprende a usarlo para tus planes ya confirmados.</p>
                         </div>
-                         <div class="flex gap-4">
-                                <button onclick="showSection('vocab', 7)" class="flex items-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span class="font-bold">Vocabulary</span>
-                                </button>
-                                <button onclick="initFlashcards(7)" class="px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-200">
-                                    <span class="font-bold">Flashcard</span>
-                                </button>
-                                <button onclick="startPracticeSession(7)" class="px-8 py-4 bg-amber-500 border border-amber-400/30 rounded-2xl font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-900/20">
-                                    <i class="fas fa-pen-nib mr-2"></i>Practicar esta Unidad
-                                </button>
-                            </div>
-                            </div>
-                        <i class="fas fa-calendar-check absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-7xl md:text-9xl text-white/10 opacity-30"></i>
+                          <!-- BOTONES CORREGIDOS PARA MÓVIL -->
+                       <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full sm:w-auto">
+                        <button onclick="showSection('vocab', 7)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20 w-full sm:w-auto">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="font-bold">Vocabulary</span>
+                        </button>
+                        
+                        <button onclick="initFlashcards(7)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-900/20 transition-all w-full sm:w-auto">
+                            <i class="fas fa-bolt"></i>
+                            <span class="font-bold">Flashcard</span>
+                        </button>
+                        
+                         <button onclick="startPracticeSession(7)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-amber-900/20 w-full sm:w-auto">
+                            <i class="fas fa-pen-nib"></i>
+                            <span>Practicar Unidad</span>
+                        </button>
                     </div>
+                </div>    
+                
 
                     <!-- Explicación Principal -->
                     <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -2196,21 +2248,28 @@
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Future with Will, May & Might</h2>
                             <p class="text-violet-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Predicciones, decisiones rápidas y posibilidades inciertas.</p>
                         </div>
-                        <div class="flex gap-4">
-                                <button onclick="showSection('vocab', 8)" class="flex items-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span class="font-bold">Vocabulary</span>
-                                </button>
-                                <button onclick="initFlashcards(8)" class="px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-200">
-                                    <span class="font-bold">Flashcard</span>
-                                </button>
-                                <button onclick="startPracticeSession(8)" class="px-8 py-4 bg-amber-500 border border-amber-400/30 rounded-2xl font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-900/20">
-                                    <i class="fas fa-pen-nib mr-2"></i>Practicar esta Unidad
-                                </button>
-                            </div>
-                            </div>
-                        <i class="fas fa-crystal-ball absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-7xl md:text-9xl text-white/10 opacity-30"></i>
+                         <!-- BOTONES CORREGIDOS PARA MÓVIL -->
+                       <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full sm:w-auto">
+                        <button onclick="showSection('vocab', 8)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20 w-full sm:w-auto">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="font-bold">Vocabulary</span>
+                        </button>
+                        
+                        <button onclick="initFlashcards(8)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-900/20 transition-all w-full sm:w-auto">
+                            <i class="fas fa-bolt"></i>
+                            <span class="font-bold">Flashcard</span>
+                        </button>
+                        
+                         <button onclick="startPracticeSession(8)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-amber-900/20 w-full sm:w-auto">
+                            <i class="fas fa-pen-nib"></i>
+                            <span>Practicar Unidad</span>
+                        </button>
                     </div>
+                </div>    
+                
 
                     <!-- Sección WILL -->
                     <section class="space-y-6">
@@ -2358,21 +2417,28 @@
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Modal Verbs: Must & Have to</h2>
                             <p class="text-emerald-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Expresa obligación, prohibición y necesidad con precisión.</p>
                         </div>
-                        <div class="flex gap-4">
-                                <button onclick="showSection('vocab', 9)" class="flex items-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span class="font-bold">Vocabulary</span>
-                                </button>
-                                <button onclick="initFlashcards(9)" class="px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-200">
-                                    <span class="font-bold">Flashcard</span>
-                                </button>
-                                <button onclick="startPracticeSession(9)" class="px-8 py-4 bg-amber-500 border border-amber-400/30 rounded-2xl font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-900/20">
-                                    <i class="fas fa-pen-nib mr-2"></i>Practicar esta Unidad
-                                </button>
-                            </div>
-                        </div>    
-                        <i class="fas fa-gavel absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-7xl md:text-9xl text-white/10 opacity-30"></i>
+                        <!-- BOTONES CORREGIDOS PARA MÓVIL -->
+                       <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full sm:w-auto">
+                        <button onclick="showSection('vocab', 9)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20 w-full sm:w-auto">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="font-bold">Vocabulary</span>
+                        </button>
+                        
+                        <button onclick="initFlashcards(9)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-900/20 transition-all w-full sm:w-auto">
+                            <i class="fas fa-bolt"></i>
+                            <span class="font-bold">Flashcard</span>
+                        </button>
+                        
+                         <button onclick="startPracticeSession(9)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-amber-900/20 w-full sm:w-auto">
+                            <i class="fas fa-pen-nib"></i>
+                            <span>Practicar Unidad</span>
+                        </button>
                     </div>
+                </div>    
+                
 
                     <!-- Must vs Have To -->
                     <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -2523,21 +2589,28 @@
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Verb Patterns: Gerunds vs Infinitives</h2>
                             <p class="text-orange-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">¿Ing o Infinitivo? Aprende las reglas para combinar dos verbos correctamente.</p>
                         </div>
-                         <div class="flex gap-4">
-                                <button onclick="showSection('vocab', 10)" class="flex items-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span class="font-bold">Vocabulary</span>
-                                </button>
-                                <button onclick="initFlashcards(10)" class="px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-200">
-                                    <span class="font-bold">Flashcard</span>
-                                </button>
-                                <button onclick="startPracticeSession(10)" class="px-8 py-4 bg-amber-500 border border-amber-400/30 rounded-2xl font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-900/20">
-                                    <i class="fas fa-pen-nib mr-2"></i>Practicar esta Unidad
-                                </button>
-                            </div>
-                        </div>   
-                        <i class="fas fa-puzzle-piece absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-7xl md:text-9xl text-white/10 opacity-30"></i>
+                         <!-- BOTONES CORREGIDOS PARA MÓVIL -->
+                       <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full sm:w-auto">
+                        <button onclick="showSection('vocab', 10)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20 w-full sm:w-auto">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="font-bold">Vocabulary</span>
+                        </button>
+                        
+                        <button onclick="initFlashcards(10)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-900/20 transition-all w-full sm:w-auto">
+                            <i class="fas fa-bolt"></i>
+                            <span class="font-bold">Flashcard</span>
+                        </button>
+                        
+                         <button onclick="startPracticeSession(10)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-amber-900/20 w-full sm:w-auto">
+                            <i class="fas fa-pen-nib"></i>
+                            <span>Practicar Unidad</span>
+                        </button>
                     </div>
+                </div>    
+                
 
                     <!-- Regla 1: Preposiciones -->
                     <section class="space-y-4">
@@ -2668,22 +2741,28 @@
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Determiners: Articles & Quantifiers</h2>
                             <p class="text-violet-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Aprende a especificar sustantivos usando The/A/An y palabras como All, Both, Other.</p>
                         </div>
-                         <div class="flex gap-4">
-                                <button onclick="showSection('vocab', 11)" class="flex items-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span class="font-bold">Vocabulary</span>
-                                </button>
-                                <button onclick="initFlashcards(11)" class="px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-200">
-                                    <span class="font-bold">Flashcard</span>
-                                </button>
-                                <button onclick="startPracticeSession(11)" class="px-8 py-4 bg-amber-500 border border-amber-400/30 rounded-2xl font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-900/20">
-                                    <i class="fas fa-pen-nib mr-2"></i>Practicar esta Unidad
-                                </button>
-                            </div>
-                        </div>   
-                        <i class="fas fa-list-check absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-7xl md:text-9xl text-white/10 opacity-30"></i>
+                          <!-- BOTONES CORREGIDOS PARA MÓVIL -->
+                       <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full sm:w-auto">
+                        <button onclick="showSection('vocab', 11)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20 w-full sm:w-auto">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="font-bold">Vocabulary</span>
+                        </button>
+                        
+                        <button onclick="initFlashcards(11)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-900/20 transition-all w-full sm:w-auto">
+                            <i class="fas fa-bolt"></i>
+                            <span class="font-bold">Flashcard</span>
+                        </button>
+                        
+                         <button onclick="startPracticeSession(11)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-amber-900/20 w-full sm:w-auto">
+                            <i class="fas fa-pen-nib"></i>
+                            <span>Practicar Unidad</span>
+                        </button>
                     </div>
-
+                </div>    
+                
                     <!-- Sección 1: Artículos -->
                     <section class="space-y-4">
                         <div class="flex items-center gap-4 px-4">
@@ -2838,21 +2917,28 @@
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Relative Pronouns: Who, Which, That</h2>
                             <p class="text-blue-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Aprende a unir frases y dar más información sobre personas y objetos.</p>
                         </div>
-                        <div class="flex gap-4">
-                                <button onclick="showSection('vocab', 12)" class="flex items-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span class="font-bold">Vocabulary</span>
-                                </button>
-                                <button onclick="initFlashcards(12)" class="px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-200">
-                                    <span class="font-bold">Flashcard</span>
-                                </button>
-                                <button onclick="startPracticeSession(12)" class="px-8 py-4 bg-amber-500 border border-amber-400/30 rounded-2xl font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-900/20">
-                                    <i class="fas fa-pen-nib mr-2"></i>Practicar esta Unidad
-                                </button>
-                            </div>
-                        </div>    
-                        <i class="fas fa-link absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-7xl md:text-9xl text-white/10 opacity-30"></i>
+                        <!-- BOTONES CORREGIDOS PARA MÓVIL -->
+                       <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full sm:w-auto">
+                        <button onclick="showSection('vocab', 12)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-2xl transition-all border border-white/20 w-full sm:w-auto">
+                            <i class="fas fa-briefcase"></i>
+                            <span class="font-bold">Vocabulary</span>
+                        </button>
+                        
+                        <button onclick="initFlashcards(12)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-pink-500 hover:bg-pink-600 rounded-2xl shadow-lg shadow-pink-900/20 transition-all w-full sm:w-auto">
+                            <i class="fas fa-bolt"></i>
+                            <span class="font-bold">Flashcard</span>
+                        </button>
+                        
+                         <button onclick="startPracticeSession(12)" 
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-amber-900/20 w-full sm:w-auto">
+                            <i class="fas fa-pen-nib"></i>
+                            <span>Practicar Unidad</span>
+                        </button>
                     </div>
+                </div>    
+                
 
                     <!-- Introducción -->
                     <section class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm">
