@@ -635,8 +635,7 @@
                 if(document.getElementById('vocab-grid')) applyVocabFilters();
             }
         }
-
-        
+   
     // --- FUNCIONALIDAD DE VOZ PREMIUM (GEMINI TTS) ---
         async function speak(text, btnElement) {
             if (btnElement) btnElement.classList.add('audio-loading');
@@ -704,7 +703,7 @@
             new Audio(url).play();
         }
            
-            let currentPracticeWord = null;
+        let currentPracticeWord = null;
         let practiceUnitScope = null;
         let practiceSessionWords = [];
         let initialSessionCount = 0;
