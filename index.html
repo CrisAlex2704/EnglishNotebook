@@ -124,6 +124,10 @@
                     <i class="fas fa-pen-nib text-amber-500"></i>
                     <span>Modo Práctica</span>
                 </button>
+                <button onclick="showSection('verbs')" id="btn-verbs" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-transparent text-left">
+                    <i class="fas fa-list-check text-emerald-500"></i>
+                    <span>Sección de Verbos</span> 
+                </button>
             </div>
             
             <div class="px-10 mb-2">
@@ -505,6 +509,15 @@
 { id: 309, word: "pounds and pence", def: "Libras y peniques", example: "The price is in pounds and pence.", unit: 14, level: "A2", fav: false },
 
               ];
+
+    let verbs = [
+            { present: "Go", pr1: "/ɡəʊ/", past: "Went", pr2: "/went/", participle: "Gone", pr3: "/ɡɒn/", spanish: "Ir" },
+            { present: "Eat", pr1: "/iːt/", past: "Ate", pr2: "/eɪt/", participle: "Eaten", pr3: "/ˈiːtn/", spanish: "Comer" },
+            { present: "Sleep", pr1: "/sliːp/", past: "Slept", pr2: "/slept/", participle: "Slept", pr3: "/slept/", spanish: "Dormir" },
+            { present: "Speak", pr1: "/spiːk/", past: "Spoke", pr2: "/spəʊk/", participle: "Spoken", pr3: "/ˈspəʊkən/", spanish: "Hablar" },
+            { present: "Write", pr1: "/raɪt/", past: "Wrote", pr2: "/rəʊt/", participle: "Written", pr3: "/ˈrɪtn/", spanish: "Escribir" },
+            { present: "Break", pr1: "/breɪk/", past: "Broke", pr2: "/brəʊk/", participle: "Broken", pr3: "/ˈbrəʊkən/", spanish: "Romper" }
+        ];           
 
         function init() {
             renderUnitList();
