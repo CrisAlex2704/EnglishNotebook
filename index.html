@@ -95,12 +95,12 @@
                     </div>
                     <h1 class="text-xl font-extrabold tracking-tight text-slate-800 dark:text-white uppercase">Master English</h1>
                 </div>
-                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-[0.2em]">Repaso Personalizado</p>
+                <p class="text-[13px] font-bold text-slate-400 uppercase tracking-[0.2em]">Repaso Personalizado</p>
             </div>
 
             <!-- Selector de Nivel -->
             <div class="px-6 mb-6">
-                <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 px-2">Nivel Actual</label>
+                <label class="block text-[14px] font-black text-slate-400 uppercase tracking-widest mb-2 px-2">Nivel Actual</label>
                 <div class="relative">
                     <select id="level-selector" onchange="changeLevel()" class="w-full p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border-none text-sm font-bold text-slate-700 dark:text-slate-200 cursor-pointer appearance-none focus:ring-2 focus:ring-indigo-500">
                         <option value="A2" selected>Nivel A2 (Elementary)</option>
@@ -110,36 +110,67 @@
                     <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
                 </div>
             </div>
+        
+    <div class="flex-1 overflow-y-auto custom-scrollbar px-2">
             
-            <div class="px-6 mb-4 space-y-2">
-                <button onclick="showSection('vocab')" id="btn-vocab" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 group border border-transparent">
-                    <i class="fas fa-spell-check text-indigo-500 group-hover:scale-110 transition-transform"></i>
-                    <span>Baúl de Vocabulario</span>
+            <!-- SECCIÓN REPASO -->
+        <div class="px-4">
+                <button onclick="toggleMenu('repasoMenu', 'repasoIcon')" 
+                    class="w-full flex items-center justify-between group py-3 px-2">
+                    <p class="text-[10px] font-black text-slate-500 group-hover:text-slate-300 uppercase tracking-[0.2em] transition-colors">Sección Repaso</p>
+                    <i id="repasoIcon" class="fas fa-chevron-down text-[10px] text-slate-600 rotate-icon"></i>
                 </button>
-                <button onclick="showSection('flashcards')" id="btn-flashcards" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 group border border-transparent">
-                    <i class="fas fa-layer-group text-pink-500 group-hover:scale-110 transition-transform"></i>
-                    <span>Modo Flashcards</span> 
+
+            <div id="repasoMenu" class="menu-content space-y-1 px-2">           
+                 <button onclick="showSection('vocab')" id="btn-vocab" class="nav-item w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold text-slate-400 hover:bg-slate-800 hover:text-white transition-all text-left group">
+                        <i class="fas fa-spell-check text-indigo-500 group-hover:scale-110 transition-transform"></i>
+                        <span>Baúl de Vocabulario</span>
+                    </button>
+                    
+                    <button onclick="showSection('flashcards')" id="btn-flashcards" class="nav-item w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold text-slate-400 hover:bg-slate-800 hover:text-white transition-all text-left group">
+                        <i class="fas fa-layer-group text-pink-500 group-hover:scale-110 transition-transform"></i>
+                        <span>Modo Flashcards</span> 
+                    </button>
+
+                    <button onclick="showSection('practice')" id="btn-practice" class="nav-item w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold text-slate-400 hover:bg-slate-800 hover:text-white transition-all text-left group">
+                        <i class="fas fa-pen-nib text-amber-500"></i>
+                        <span>Modo Práctica</span>
+                    </button>
+
+                    <button onclick="showSection('verbs')" id="btn-verbs" class="nav-item w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold text-slate-400 hover:bg-slate-800 hover:text-white transition-all text-left group">
+                        <i class="fas fa-list-check text-emerald-500"></i>
+                        <span>Sección de Verbos</span> 
+                    </button>
+
+                    <button onclick="showSection('practiceV')" id="btn-practiceV" class="nav-item w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold text-slate-400 hover:bg-slate-800 hover:text-white transition-all text-left group">
+                        <i class="fas fa-dumbbell text-blue-400 w-5 text-center"></i>
+                        <span>Práctica de Verbos</span>
+                    </button>
+            </div>   
+        </div>
+          
+
+             <!-- PLAN DE ESTUDIOS -->
+        <div class="px-4 mt-2">
+                <button onclick="toggleMenu('planMenu', 'planIcon')" 
+                    class="w-full flex items-center justify-between group py-3 px-2">
+                    <p class="text-[10px] font-black text-slate-500 group-hover:text-slate-300 uppercase tracking-[0.2em] transition-colors">Plan de Estudios</p>
+                    <i id="planIcon" class="fas fa-chevron-down text-[10px] text-slate-600 rotate-icon"></i>
                 </button>
-                 <button onclick="showSection('practice')" id="btn-practice" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 group border border-transparent">
-                    <i class="fas fa-pen-nib text-amber-500"></i>
-                    <span>Modo Práctica</span>
-                </button>
-                <button onclick="showSection('verbs')" id="btn-verbs" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-transparent text-left">
-                    <i class="fas fa-list-check text-emerald-500"></i>
-                    <span>Sección de Verbos</span> 
-                </button>
-            </div>
-            
-            <div class="px-10 mb-2">
-                <h2 class="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">Plan de Estudios</h2>
-            </div>
+
+            <div id="planMenu" class="menu-content">
+                 <div class="px-4 mb-4 mt-2">
+                        <h2 class="text-[12px] font-extrabold text-slate-500 uppercase tracking-widest">Contenido</h2>
+                    </div>
 
             <nav class="flex-1 overflow-y-auto custom-scrollbar px-6 pb-8 space-y-1" id="unit-list">
                 <!-- Unidades dinámicas -->
             </nav>
-
+            </div>
+        </div>
+    </div>
             <!-- Theme Toggle -->
-            <div class="p-6 border-t border-slate-100 dark:border-slate-800 space-y-4">
+            <div class="dark:bg-slate-800 p-6 border-t border-slate-100 dark:border-slate-800 space-y-4">
                 <button onclick="toggleDarkMode()" class="w-full flex items-center justify-between px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-sm font-bold text-slate-600 dark:text-slate-300 hover:ring-2 hover:ring-indigo-400 transition-all">
                     <span id="theme-text">Modo Oscuro</span>
                     <i id="theme-icon" class="fas fa-moon text-indigo-500"></i>
@@ -167,6 +198,23 @@
                 <button onclick="closeDeleteModal()" class="flex-1 py-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold rounded-2xl hover:bg-slate-200 transition-colors">Cancelar</button>
                 <button id="confirm-delete-btn" class="flex-1 py-3 bg-red-600 text-white font-bold rounded-2xl hover:bg-red-700 transition-colors shadow-lg shadow-red-200 dark:shadow-none">Eliminar</button>
             </div>
+        </div>
+    </div>
+
+ <!-- Modal para seleccionar cantidad -->
+    <div id="setup-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-[2.5rem] max-w-md w-full p-10 shadow-2xl scale-95 transition-all">
+            <h3 class="text-2xl dark:text-white font-black text-slate-900 mb-2 uppercase italic tracking-tight text-center">Configurar Práctica</h3>
+            <p class="text-slate-500 dark:text-white text-center font-medium mb-8">¿Cuántos verbos quieres practicar hoy?</p>
+            
+            <div class=" dark:text-white grid grid-cols-2 gap-4 mb-8">
+                <button onclick="selectQuantity(5)" class="qty-btn p-4 rounded-2xl border-2 border-slate-100 font-black text-slate-600 hover:border-indigo-500 hover:text-indigo-600 transition-all">5 Verbos</button>
+                <button onclick="selectQuantity(10)" class="qty-btn p-4 rounded-2xl border-2 border-slate-100 font-black text-slate-600 hover:border-indigo-500 hover:text-indigo-600 transition-all">10 Verbos</button>
+                <button onclick="selectQuantity(15)" class="qty-btn p-4 rounded-2xl border-2 border-slate-100 font-black text-slate-600 hover:border-indigo-500 hover:text-indigo-600 transition-all">15 Verbos</button>
+                <button onclick="selectQuantity(20)" class="qty-btn p-4 rounded-2xl border-2 border-slate-100 font-black text-slate-600 hover:border-indigo-500 hover:text-indigo-600 transition-all">20 Verbos</button>
+            </div>
+
+            <button onclick="closeSetupModal()" class="dark:bg-slate-700 dark:text-white w-full py-4 bg-slate-100 text-slate-400 rounded-2xl font-black uppercase tracking-widest text-xs">Cancelar</button>
         </div>
     </div>
 
@@ -519,6 +567,17 @@
             { present: "Break", pr1: "/breɪk/", past: "Broke", pr2: "/brəʊk/", participle: "Broken", pr3: "/ˈbrəʊkən/", spanish: "Romper" }
         ];           
 
+        let quizState = {
+            active: false,
+            mode: null,
+            index: 0,
+            score: 0,
+            data: [],
+            quantity: 0,
+            hasErrorOnCurrent: false,
+            currentTargetField: null
+        };
+        
         function init() {
             renderUnitList();
             showUnit(1);
@@ -545,7 +604,7 @@
                 btn.className = `w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all text-sm font-medium text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 group`;
                 btn.innerHTML = `
                     <div class="flex items-center gap-3">
-                        <span class="w-6 h-6 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-[10px] font-bold group-hover:bg-indigo-100">${i}</span>
+                        <span class="w-6 h-6 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-[14px] font-bold group-hover:bg-indigo-100">${i}</span>
                         <span>Unidad ${i}</span>
                     </div>
                 `;
@@ -800,7 +859,7 @@
                             <button onclick="renderPracticeSetup()" class="text-xs font-bold text-slate-400 hover:text-indigo-500 transition-colors">
                                 <i class="fas fa-arrow-left mr-1"></i> Abandonar
                             </button>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                            <span class="text-[14px] font-black uppercase tracking-widest text-slate-400">
                                 Palabra ${completedCount + 1} de ${initialSessionCount}
                             </span>
                         </div>
@@ -814,7 +873,7 @@
                             <div class="text-xs font-bold text-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 px-3 py-1 rounded-full">
                                 Aciertos: ${score}
                             </div>
-                            <div class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-[10px] font-black uppercase tracking-widest rounded-full">
+                            <div class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-[14px] font-black uppercase tracking-widest rounded-full">
                                 ${practiceUnitScope ? `Unidad ${practiceUnitScope}` : `Nivel ${activeLevel}`}
                             </div>
                         </div>
@@ -872,7 +931,7 @@
                 // Mostrar pista de cómo se escribe
                 feedback.innerHTML = `
                     <span class="text-red-500">Incorrecto</span>
-                    <span class="text-slate-400 text-[10px] mt-1">Se escribe: <b class="text-slate-600 dark:text-slate-200">${currentPracticeWord.word}</b></span>
+                    <span class="text-slate-400 text-[14px] mt-1">Se escribe: <b class="text-slate-600 dark:text-slate-200">${currentPracticeWord.word}</b></span>
                 `;
                 feedback.classList.remove('opacity-0');
                 
@@ -905,11 +964,11 @@
 
                     <div class="grid grid-cols-2 gap-4">
                         <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800">
-                            <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Aciertos (1er intento)</p>
+                            <p class="text-[14px] font-black uppercase tracking-widest text-slate-400 mb-1">Aciertos (1er intento)</p>
                             <p class="text-3xl font-bold text-green-500">${score}</p>
                         </div>
                         <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800">
-                            <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Total Palabras</p>
+                            <p class="text-[14px] font-black uppercase tracking-widest text-slate-400 mb-1">Total Palabras</p>
                             <p class="text-3xl font-bold text-indigo-500">${initialSessionCount}</p>
                         </div>
                     </div>
@@ -923,7 +982,7 @@
         }
 
         // --- SECCIÓN: VOCABULARIO ---
-          function showSection(section, unitParam = null) {
+        function showSection(section, unitParam = null) {
             const area = document.getElementById('content-area');
             if (section === 'vocab') {
                 updateActiveState('btn-vocab');
@@ -931,16 +990,396 @@
             } else if (section === 'flashcards') {
                 updateActiveState('btn-flashcards');
                 renderFlashcardSetup();
-            }else if (section === 'practice') {
+            }
+             else if (section === 'practice') {
                 updateActiveState('btn-practice');
                 if (unitParam) {
                     renderPracticeMode(unitParam);
                 } else {
                     renderPracticeSetup();
                 }
+            } else if (section === 'verbs') {
+                // AGREGADO: Sección de Verbos
+                updateActiveState('btn-verbs');
+                renderVerbsSection(area);
+            }  else if (section === 'practiceV') {
+                updateActiveState('btn-practiceV');
+                renderPracticeMenu(area);
             }
         }
 
+          function renderPracticeMenu(container) {
+            const modes = [
+                { id: 'present', label: 'Base Form', icon: 'fa-font', color: 'indigo' },
+                { id: 'past', label: 'Past Simple', icon: 'fa-history', color: 'emerald' },
+                { id: 'participle', label: 'Participle', icon: 'fa-layer-group', color: 'amber' },
+                { id: 'spanish', label: 'Spanish', icon: 'fa-language', color: 'rose' },
+                { id: 'mix', label: 'Random Mix', icon: 'fa-random', color: 'violet' }
+            ];
+
+            container.innerHTML = `
+                <div class="mb-12 text-center md:text-left">
+                    <h2 class="dark:text-white text-4xl font-black text-slate-900 mb-2 italic tracking-tight uppercase">Entrenamiento</h2>
+                    <p class="text-slate-500 font-medium">Selecciona un modo para comenzar a practicar.</p>
+                </div>
+                <div class=" dark:text-white grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    ${modes.map(m => `
+                        <button onclick="openSetupModal('${m.id}')" class="group bg-white p-8 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2.5rem] border border-slate-200 text-left hover:shadow-xl transition-all">
+                            <div class=" dark:bg-slate-700 w-12 h-12 mb-6 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl">
+                                <i class="fas dark:bg-slate-700 ${m.icon}"></i>
+                            </div>
+                            <h4 class="font-black dark:text-white text-slate-800 uppercase tracking-widest text-xs mb-1">${m.label}</h4>
+                            <p class="text-slate-400 text-[10px] uppercase font-bold tracking-widest">Seleccionar cantidad <i class="fas fa-arrow-right ml-2 text-[8px]"></i></p>
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function openSetupModal(mode) {
+            quizState.mode = mode;
+            document.getElementById('setup-modal').classList.remove('hidden');
+        }
+
+        function closeSetupModal() {
+            document.getElementById('setup-modal').classList.add('hidden');
+        }
+
+        function selectQuantity(qty) {
+            quizState.quantity = qty;
+            closeSetupModal();
+            startPractice();
+        }
+
+        function startPractice() {
+            const shuffled = [...verbs].sort(() => 0.5 - Math.random());
+            const selection = shuffled.slice(0, quizState.quantity);
+
+            quizState.active = true;
+            quizState.index = 0;
+            quizState.score = 0;
+            quizState.data = selection;
+            quizState.hasErrorOnCurrent = false;
+            
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const container = document.getElementById('content-area');
+            const verb = quizState.data[quizState.index];
+            const progress = (quizState.index / quizState.quantity) * 100;
+
+            let field = quizState.mode;
+            if (field === 'mix') {
+                const options = ['present', 'past', 'participle', 'spanish'];
+                field = options[Math.floor(Math.random() * options.length)];
+            }
+            quizState.currentTargetField = field;
+            quizState.hasErrorOnCurrent = false;
+
+            let prompt = "";
+            let hint = "";
+            switch(field) {
+                case 'present': prompt = "Base Form"; hint = `${verb.past} / ${verb.spanish}`; break;
+                case 'past': prompt = "Past Simple"; hint = `${verb.present} / ${verb.spanish}`; break;
+                case 'participle': prompt = "Participle"; hint = `${verb.present} / ${verb.past}`; break;
+                case 'spanish': prompt = "En Español"; hint = `${verb.present} / ${verb.past}`; break;
+            }
+
+          container.innerHTML = `
+    <div class="max-w-2xl mx-auto">
+        <!-- Stats Header -->
+        <div class="flex items-center justify-between mb-10">
+            <div class="flex flex-col">
+                <span class="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Aciertos</span>
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl font-black text-emerald-500">${quizState.score}</span>
+                    <span class="text-xs text-slate-300 dark:text-slate-600 font-bold">/ ${quizState.quantity}</span>
+                </div>
+            </div>
+            <div class="flex flex-col items-end">
+                <span class="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Pregunta</span>
+                <span class="text-2xl font-black text-indigo-500">${quizState.index + 1} <span class="text-xs text-slate-300 dark:text-slate-600">de ${quizState.quantity}</span></span>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="bg-white dark:bg-slate-900 rounded-[3.5rem] border border-slate-200 dark:border-slate-800 p-10 text-center relative overflow-hidden shadow-xl dark:shadow-2xl dark:shadow-indigo-500/10 transition-colors duration-300">
+            
+            <!-- Progress Bar Background -->
+            <div class="absolute top-0 left-0 w-full h-2 bg-slate-50 dark:bg-slate-800">
+                <div class="h-full bg-indigo-500 progress-bar shadow-[0_0_10px_rgba(99,102,241,0.3)]" style="width: ${progress}%"></div>
+            </div>
+
+            <div class="pt-6 space-y-8">
+                <!-- Question Section -->
+                <div>
+                    <h3 class="text-4xl font-black text-slate-900 dark:text-white italic uppercase tracking-tighter">${prompt}</h3>
+                    <div class="inline-flex mt-4 px-4 py-2 bg-slate-50 dark:bg-slate-800 rounded-full">
+                        <p class="text-slate-400 dark:text-slate-500 font-bold uppercase text-[10px] tracking-widest">Pista: ${hint}</p>
+                    </div>
+                </div>
+
+                <!-- Input Section -->
+                <div id="input-container" class="relative">
+                    <input type="text" id="answer-input" autocomplete="off" autofocus
+                        onkeyup="if(event.key==='Enter') checkAnswer()"
+                        placeholder="..."
+                        class="w-full p-8 bg-slate-50 dark:bg-slate-800/50 rounded-3xl border-4 border-transparent focus:bg-white dark:focus:bg-slate-800 focus:border-indigo-500 outline-none text-center text-4xl font-black text-slate-800 dark:text-white transition-all uppercase placeholder:opacity-20">
+                    
+                    <div id="feedback-msg" class="hidden mt-6 p-5 rounded-2xl bg-rose-50 dark:bg-rose-900/20 border border-rose-100 dark:border-rose-900/30 text-rose-600 dark:text-rose-400 font-black uppercase text-[10px] tracking-widest animate-pulse">
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="grid grid-cols-2 gap-4">
+                    <button onclick="showSection('practiceV')" 
+                        class="py-5 bg-slate-50 dark:bg-slate-800 text-slate-400 dark:text-slate-500 rounded-3xl font-black uppercase tracking-widest text-[10px] hover:bg-rose-50 dark:hover:bg-rose-900/30 hover:text-rose-500 transition-all">
+                        Abandonar
+                    </button>
+                    <button onclick="checkAnswer()" 
+                        class="py-5 bg-slate-900 dark:bg-indigo-600 text-white rounded-3xl font-black uppercase tracking-widest text-[10px] shadow-lg shadow-slate-200 dark:shadow-none hover:bg-indigo-600 dark:hover:bg-indigo-500 transition-all">
+                        Verificar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+            setTimeout(() => {
+                const input = document.getElementById('answer-input');
+                if(input) input.focus();
+            }, 100);
+        }
+
+        function checkAnswer() {
+            const input = document.getElementById('answer-input');
+            const feedback = document.getElementById('feedback-msg');
+            const container = document.getElementById('input-container');
+            
+            const userVal = input.value.trim().toLowerCase();
+            const verb = quizState.data[quizState.index];
+            const correct = verb[quizState.currentTargetField].toLowerCase();
+
+            if (userVal === correct) {
+                if (!quizState.hasErrorOnCurrent) quizState.score++;
+                
+                input.classList.remove('bg-slate-50', 'text-rose-600', 'border-rose-500');
+                input.classList.add('bg-emerald-50', 'text-emerald-600', 'border-emerald-500', 'success-glow');
+                feedback.classList.add('hidden');
+                
+                if (quizState.currentTargetField !== 'spanish') speak(verb[quizState.currentTargetField]);
+
+                setTimeout(() => {
+                    quizState.index++;
+                    if (quizState.index < quizState.data.length) renderQuestion();
+                    else renderResults();
+                }, 600);
+            } else {
+                quizState.hasErrorOnCurrent = true;
+                container.classList.add('shake');
+                input.classList.add('border-rose-500', 'text-rose-600', 'bg-rose-50');
+                feedback.innerHTML = `<i class="fas fa-times-circle mr-2"></i> Incorrecto. Escribe: <span class="underline decoration-2 ml-1">${verb[quizState.currentTargetField].toUpperCase()}</span>`;
+                feedback.classList.remove('hidden');
+                setTimeout(() => container.classList.remove('shake'), 400);
+            }
+        }
+
+        function renderResults() {
+            const container = document.getElementById('content-area');
+            const percent = Math.round((quizState.score / quizState.quantity) * 100);
+
+            let feedbackColor = 'text-indigo-600 dark:text-indigo-400';
+let feedbackIcon = 'fa-flag-checkered';
+let feedbackMessage = 'Sesión Completada';
+let subMessage = '¡Buen esfuerzo! Sigue practicando para mejorar.';
+
+if (percent >= 90) {
+    feedbackColor = 'text-emerald-500';
+    feedbackIcon = 'fa-crown';
+    feedbackMessage = '¡Nivel Leyenda!';
+    subMessage = '¡Increíble! Tienes un dominio total de este vocabulario.';
+} else if (percent >= 70) {
+    feedbackColor = 'text-blue-500';
+    feedbackIcon = 'fa-rocket';
+    feedbackMessage = '¡Excelente Trabajo!';
+    subMessage = 'Estás muy cerca de la perfección. ¡No te detengas!';
+} else if (percent < 50) {
+    feedbackColor = 'text-amber-500';
+    feedbackIcon = 'fa-lightbulb';
+    feedbackMessage = 'Sigue así';
+    subMessage = 'La constancia es la clave del éxito. ¡Inténtalo de nuevo!';
+}
+           container.innerHTML = `
+    <div class="max-w-xl mx-auto text-center space-y-10 animate-in fade-in zoom-in duration-500">
+        
+        <!-- Badge Principal con Animación -->
+        <div class="relative inline-block group">
+            <div class="absolute inset-0 bg-indigo-500 blur-3xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+            <div class="relative w-36 h-36 bg-white dark:bg-slate-900 rounded-full flex items-center justify-center text-5xl shadow-2xl ring-8 ring-slate-50 dark:ring-slate-800/50 border border-slate-100 dark:border-slate-800">
+                <i class="fas ${feedbackIcon} ${feedbackColor} animate-bounce"></i>
+            </div>
+            <div class="absolute -bottom-2 -right-2 bg-slate-900 dark:bg-indigo-600 text-white w-14 h-14 rounded-2xl flex flex-col items-center justify-center border-4 border-white dark:border-slate-900 font-black shadow-lg transform rotate-12">
+                <span class="text-[10px] leading-none opacity-70">SCORE</span>
+                <span class="text-sm">${percent}%</span>
+            </div>
+        </div>
+
+        <!-- Títulos con Dark Mode -->
+        <div class="space-y-3">
+            <h3 class="text-5xl font-black text-slate-900 dark:text-white italic tracking-tighter uppercase leading-none">
+                ${feedbackMessage}
+            </h3>
+            <p class="text-slate-400 dark:text-slate-500 font-medium text-sm max-w-xs mx-auto">
+                ${subMessage}
+            </p>
+        </div>
+
+        <!-- Grid de Estadísticas -->
+        <div class="grid grid-cols-2 gap-4">
+            <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-sm transition-transform hover:scale-[1.02]">
+                <p class="text-4xl font-black text-emerald-500">${quizState.score}</p>
+                <p class="text-[10px] text-slate-400 dark:text-slate-500 font-black uppercase tracking-widest mt-1">Aciertos</p>
+            </div>
+            <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-sm transition-transform hover:scale-[1.02]">
+                <p class="text-4xl font-black text-rose-500">${quizState.quantity - quizState.score}</p>
+                <p class="text-[10px] text-slate-400 dark:text-slate-500 font-black uppercase tracking-widest mt-1">Errores</p>
+            </div>
+        </div>
+
+        <!-- Botón de Acción Principal -->
+        <div class="pt-4">
+            <button onclick="showSection('practiceV')" 
+                class="group relative w-full py-6 bg-slate-900 dark:bg-indigo-600 text-white rounded-[2rem] font-black uppercase tracking-widest overflow-hidden transition-all hover:scale-[1.02] active:scale-95 shadow-2xl shadow-indigo-500/20">
+                <div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform"></div>
+                <span class="relative flex items-center justify-center gap-3">
+                    <i class="fas fa-redo-alt text-xs group-hover:rotate-180 transition-transform duration-500"></i>
+                    VOLVER A ENTRENAR
+                </span>
+            </button>
+        </div>
+    </div>
+`;
+        }
+
+        
+   function renderVerbsSection(container) {
+            container.innerHTML = `
+                <div class="mb-8">
+                    <h2 class="text-3xl font-black text-slate-800 dark:text-white mb-2 italic">Verb Dictionary</h2>
+                    <p class="text-slate-500 dark:text-slate-400 font-medium text-sm">Lista detallada de verbos irregulares y comunes.</p>
+                </div>
+
+                <!-- Buscador de Verbos -->
+                <div class="mb-10 max-w-xl">
+                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center px-5 py-3 rounded-2xl shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 transition-all">
+                        <i class="fas fa-search text-slate-400 mr-4"></i>
+                        <input type="text" 
+                               id="verb-search-input"
+                               oninput="filterVerbs(this.value)"
+                               placeholder="Buscar por presente o español..." 
+                               class="w-full bg-transparent border-none outline-none text-slate-700 dark:text-slate-200 text-sm font-medium">
+                    </div>
+                </div>
+
+                <!-- Tabla de Verbos -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-50 dark:bg-slate-800/50">
+                                    <th class="p-5 text-[13px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-slate-800">Present</th>
+                                    <th class="p-5 text-[13px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-slate-800">Past Simple</th>
+                                    <th class="p-5 text-[13px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-slate-800">Participle</th>
+                                    <th class="p-5 text-[13px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-slate-800">Spanish</th>
+                                </tr>
+                            </thead>
+                            <tbody id="verbs-table-body" class="divide-y divide-slate-100 dark:divide-slate-800">
+                                <!-- Se llena dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+            // Carga inicial de datos
+            filterVerbs("");
+        }
+
+        // --- 3. FILTRADO Y TABLA (TAMAÑOS AUMENTADOS) ---
+        function filterVerbs(query) {
+            const tableBody = document.getElementById('verbs-table-body');
+            const q = query.toLowerCase();
+            
+            const filtered = verbs.filter(v => 
+                v.present.toLowerCase().includes(q) || 
+                v.spanish.toLowerCase().includes(q)
+            );
+
+            tableBody.innerHTML = filtered.map(v => `
+                <tr class="verb-row transition-colors group">
+                    <td class="p-6">
+                        <div class="flex items-center gap-4">
+                            <button onclick="speak('${v.present}', this)" class="w-10 h-10 flex items-center justify-center bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-xl hover:scale-110 transition-transform shadow-sm">
+                                <i class="fas fa-volume-up text-sm"></i>
+                            </button>
+                            <div>
+                                <div class="font-bold text-slate-800 dark:text-white text-base md:text-lg">${v.present}</div>
+                                <div class="text-[13px] text-slate-400 font-mono tracking-tighter">${v.pr1}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="p-6">
+                        <div class="flex items-center gap-4">
+                            <button onclick="speak('${v.past}', this)" class="w-10 h-10 flex items-center justify-center bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-xl hover:scale-110 transition-transform shadow-sm">
+                                <i class="fas fa-volume-up text-sm"></i>
+                            </button>
+                            <div>
+                                <div class="font-bold text-slate-800 dark:text-white text-base md:text-lg">${v.past}</div>
+                                <div class="text-[13px] text-slate-400 font-mono tracking-tighter">${v.pr2}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="p-6">
+                        <div class="flex items-center gap-4">
+                            <button onclick="speak('${v.participle}', this)" class="w-10 h-10 flex items-center justify-center bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded-xl hover:scale-110 transition-transform shadow-sm">
+                                <i class="fas fa-volume-up text-sm"></i>
+                            </button>
+                            <div>
+                                <div class="font-bold text-slate-800 dark:text-white text-base md:text-lg">${v.participle}</div>
+                                <div class="text-[13px] text-slate-400 font-mono tracking-tighter">${v.pr3}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="p-6">
+                        <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl text-xs md:text-sm font-bold uppercase tracking-wider group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm inline-block">
+                            ${v.spanish}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+
+            if (filtered.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="4" class="p-10 text-center text-slate-400 text-sm italic">No se encontraron verbos que coincidan...</td></tr>`;
+            }
+        }
+
+        // --- UTILIDADES ---
+        function updateActiveState(activeId) {
+            document.querySelectorAll('aside button').forEach(btn => {
+                btn.classList.remove('bg-indigo-50', 'text-indigo-600', 'dark:bg-slate-800');
+            });
+            const activeBtn = document.getElementById(activeId);
+            if (activeBtn) activeBtn.classList.add('bg-indigo-50', 'text-indigo-600', 'dark:bg-slate-800');
+        }
+
+        async function speak(text, btn) {
+            if (btn) btn.classList.add('audio-loading');
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.onend = () => { if (btn) btn.classList.remove('audio-loading'); };
+            window.speechSynthesis.speak(utterance);
+        }
+        
         function renderFlashcardSetup() {
             const area = document.getElementById('content-area');
             area.innerHTML = `
@@ -961,7 +1400,7 @@
                                 <select id="flash-unit-select" class="w-full p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border-none text-sm font-bold appearance-none cursor-pointer">
                                     ${Array.from({length: 20}, (_, i) => `<option value="${i+1}" ${activeNum == i+1 ? 'selected' : ''}>Unidad ${i+1}</option>`).join('')}
                                 </select>
-                                <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-[10px]"></i>
+                                <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-[12px]"></i>
                             </div>
                             <button onclick="initFlashcards(document.getElementById('flash-unit-select').value)" class="w-full py-4 bg-indigo-600 text-white rounded-2xl font-bold shadow-lg shadow-indigo-200 dark:shadow-none hover:bg-indigo-700 transition-colors">Empezar</button>
                         </div>
@@ -1064,19 +1503,19 @@
                 <div class="animate-content max-w-2xl mx-auto space-y-8">
                     <div class="flex items-center justify-between bg-white dark:bg-slate-900 p-4 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm">
                         <button onclick="renderFlashcardSetup()" class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-slate-50 transition-colors"><i class="fas fa-times text-slate-400"></i></button>
-                        <div class="text-center"><span class="block text-[10px] font-black uppercase tracking-widest text-slate-400">Progreso</span><span class="text-sm font-bold">${flashcardState.currentIndex + 1} de ${flashcardState.list.length}</span></div>
+                        <div class="text-center"><span class="block text-[14px] font-black uppercase tracking-widest text-slate-400">Progreso</span><span class="text-sm font-bold">${flashcardState.currentIndex + 1} de ${flashcardState.list.length}</span></div>
                         <button onclick="shuffleFlashcards()" class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-slate-50 transition-colors"><i class="fas fa-random text-pink-500"></i></button>
                     </div>
                     <div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-pink-500 transition-all duration-500" style="width: ${progress}%"></div></div>
                     <div id="main-card" class="flip-card animate-card ${flashcardState.isFlipped ? 'flipped' : ''}" onclick="flipCard()">
                         <div class="flip-card-inner">
                             <div class="flip-card-front bg-indigo-600 text-white">
-                                <span class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-indigo-200">Inglés</span>
+                                <span class="text-[14px] font-black uppercase tracking-[0.3em] mb-4 text-indigo-200">Inglés</span>
                                 <h3 class="text-5xl font-black mb-6 select-none">${currentWord.word}</h3>
                                 <button onclick="event.stopPropagation(); speak('${currentWord.word}')" class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center hover:bg-white/40"><i class="fas fa-volume-up"></i></button>
                             </div>
                             <div class="flip-card-back bg-white dark:bg-slate-900 border-2 border-indigo-50 dark:border-indigo-900/50">
-                                <span class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-slate-400">Traducción</span>
+                                <span class="text-[14px] font-black uppercase tracking-[0.3em] mb-4 text-slate-400">Traducción</span>
                                 <h3 class="text-4xl font-bold text-slate-800 dark:text-white mb-6 select-none">${currentWord.def}</h3>
                                 <div class="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-[2rem] border border-slate-100 dark:border-slate-800"><p class="text-sm italic text-slate-500 leading-relaxed text-center">"${currentWord.example}"</p></div>
                             </div>
@@ -1119,7 +1558,7 @@
         }
 
         function renderWordCard(v) {
-            return `<div class="p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-all relative group"><div class="absolute top-6 right-12 flex gap-2"><span class="text-[9px] px-2 py-0.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-full border border-indigo-100 dark:border-indigo-800/50 uppercase tracking-wider">${v.level}</span><span class="text-[9px] px-2 py-0.5 bg-slate-50 dark:bg-slate-800 text-slate-400 font-bold rounded-full border border-slate-100 dark:border-slate-700 uppercase tracking-wider">U${v.unit}</span></div><div class="flex justify-between items-start mb-2"><div class="flex items-center gap-2"><h4 class="text-xl font-bold text-indigo-600 dark:text-indigo-400">${v.word}</h4><button onclick="speak('${v.word}')" class="text-slate-300 hover:text-indigo-500 transition-colors"><i class="fas fa-volume-up text-xs"></i></button></div><button onclick="toggleFavorite(${v.id})" class="text-lg ${v.fav ? 'text-pink-500' : 'text-slate-200 dark:text-slate-700'} hover:scale-110 transition-transform"><i class="${v.fav ? 'fas' : 'far'} fa-heart"></i></button></div><p class="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-3">${v.def}</p><div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border-l-4 border-indigo-500"><p class="text-[11px] italic text-slate-500 dark:text-slate-400 leading-relaxed">"${v.example}"</p></div></div>`;
+            return `<div class="p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-all relative group"><div class="absolute top-6 right-12 flex gap-2"><span class="text-[9px] px-2 py-0.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-full border border-indigo-100 dark:border-indigo-800/50 uppercase tracking-wider">${v.level}</span><span class="text-[9px] px-2 py-0.5 bg-slate-50 dark:bg-slate-800 text-slate-400 font-bold rounded-full border border-slate-100 dark:border-slate-700 uppercase tracking-wider">U${v.unit}</span></div><div class="flex justify-between items-start mb-2"><div class="flex items-center gap-2"><h4 class="text-xl font-bold text-indigo-600 dark:text-indigo-400">${v.word}</h4><button onclick="speak('${v.word}')" class="text-slate-300 hover:text-indigo-500 transition-colors"><i class="fas fa-volume-up text-xs"></i></button></div><button onclick="toggleFavorite(${v.id})" class="text-lg ${v.fav ? 'text-pink-500' : 'text-slate-200 dark:text-slate-700'} hover:scale-110 transition-transform"><i class="${v.fav ? 'fas' : 'far'} fa-heart"></i></button></div><p class="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-3">${v.def}</p><div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border-l-4 border-indigo-500"><p class="text-[13px] italic text-slate-500 dark:text-slate-400 leading-relaxed">"${v.example}"</p></div></div>`;
         }
 
         function renderVocabSection(container, targetUnit = null) {
@@ -1243,7 +1682,7 @@
                                     <p class="text-xs font-bold text-slate-400 mb-2">NEGATIVE (-) <span class="text-red-500">Don't / Doesn't</span></p>
                                     <p class="text-sm font-semibold mb-2 italic">Subj + don't/doesn't + Verb (base)</p>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">"He <strong>doesn't eat</strong> meat."</p>
-                                    <p class="text-[10px] text-red-400 mt-2">¡Ojo! El verbo pierde la 's' al usar doesn't.</p>
+                                    <p class="text-[14px] text-red-400 mt-2">¡Ojo! El verbo pierde la 's' al usar doesn't.</p>
                                 </div>
 
                                 <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
@@ -1488,17 +1927,17 @@
                         <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-100 dark:border-slate-800 text-center">
                             <i class="fas fa-microphone-alt text-indigo-500 mb-4 text-2xl"></i>
                             <h5 class="font-bold text-sm mb-2">Tip de Escucha</h5>
-                            <p class="text-[11px] text-slate-500">Si escuchas un verbo de sentimiento con -ing, suele ser lenguaje informal o un error común de nativos.</p>
+                            <p class="text-[13px] text-slate-500">Si escuchas un verbo de sentimiento con -ing, suele ser lenguaje informal o un error común de nativos.</p>
                         </div>
                         <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-100 dark:border-slate-800 text-center">
                             <i class="fas fa-pen-nib text-indigo-500 mb-4 text-2xl"></i>
                             <h5 class="font-bold text-sm mb-2">Tip de Escritura</h5>
-                            <p class="text-[11px] text-slate-500">En exámenes oficiales, usa siempre Present Simple para 'Stative Verbs' para ir a lo seguro.</p>
+                            <p class="text-[13px] text-slate-500">En exámenes oficiales, usa siempre Present Simple para 'Stative Verbs' para ir a lo seguro.</p>
                         </div>
                         <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-100 dark:border-slate-800 text-center">
                             <i class="fas fa-bolt text-indigo-500 mb-4 text-2xl"></i>
                             <h5 class="font-bold text-sm mb-2">Regla Rápida</h5>
-                            <p class="text-[11px] text-slate-500">¿Es algo que puedes ver a alguien haciendo físicamente? Si la respuesta es NO, es probable que sea un Stative Verb.</p>
+                            <p class="text-[13px] text-slate-500">¿Es algo que puedes ver a alguien haciendo físicamente? Si la respuesta es NO, es probable que sea un Stative Verb.</p>
                         </div>
                     </section>
                 </div>
@@ -1512,7 +1951,7 @@
                     <div class="relative py-8 md:py-12 px-6 md:px-10 rounded-[2rem] md:rounded-[3rem] bg-gradient-to-r from-emerald-600 to-teal-700 overflow-hidden text-white shadow-xl">
                          <div class="relative z-10 flex flex-col items-start gap-6">
                           <div>  
-                            <p class="text-[10px] font-black uppercase tracking-[0.3em] mb-3 text-emerald-100">Nivel A2 • Past Tense</p>
+                            <p class="text-[14px] font-black uppercase tracking-[0.3em] mb-3 text-emerald-100">Nivel A2 • Past Tense</p>
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Past Simple</h2>
                             <p class="text-emerald-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Aprende a narrar tus experiencias pasadas con fluidez.</p>
                         </div>
@@ -1567,22 +2006,22 @@
                         </h3>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl">
-                                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Regla General</span>
+                                <span class="text-[14px] font-black text-slate-400 uppercase tracking-widest">Regla General</span>
                                 <p class="font-bold">Añade <strong>-ed</strong></p>
                                 <p class="text-xs text-slate-500 italic mt-1">Walk → Walked / Play → Played</p>
                             </div>
                             <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl">
-                                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Termina en -E</span>
+                                <span class="text-[14px] font-black text-slate-400 uppercase tracking-widest">Termina en -E</span>
                                 <p class="font-bold">Añade solo <strong>-d</strong></p>
                                 <p class="text-xs text-slate-500 italic mt-1">Like → Liked / Move → Moved</p>
                             </div>
                             <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl">
-                                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Consonante + Y</span>
+                                <span class="text-[14px] font-black text-slate-400 uppercase tracking-widest">Consonante + Y</span>
                                 <p class="font-bold">Cambia Y por <strong>-ied</strong></p>
                                 <p class="text-xs text-slate-500 italic mt-1">Study → Studied / Cry → Cried</p>
                             </div>
                             <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl">
-                                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">CVC (1 sílaba)</span>
+                                <span class="text-[14px] font-black text-slate-400 uppercase tracking-widest">CVC (1 sílaba)</span>
                                 <p class="font-bold">Duplica consonante + <strong>ed</strong></p>
                                 <p class="text-xs text-slate-500 italic mt-1">Stop → Stopped / Plan → Planned</p>
                             </div>
@@ -1629,10 +2068,10 @@
                         </div>
                         
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 text-center">
-                            <div class="p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm"><span class="block text-[10px] text-slate-400">GO</span><strong>WENT</strong></div>
-                            <div class="p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm"><span class="block text-[10px] text-slate-400">EAT</span><strong>ATE</strong></div>
-                            <div class="p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm"><span class="block text-[10px] text-slate-400">DRINK</span><strong>DRANK</strong></div>
-                            <div class="p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm"><span class="block text-[10px] text-slate-400">SLEEP</span><strong>SLEPT</strong></div>
+                            <div class="p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm"><span class="block text-[14px] text-slate-400">GO</span><strong>WENT</strong></div>
+                            <div class="p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm"><span class="block text-[14px] text-slate-400">EAT</span><strong>ATE</strong></div>
+                            <div class="p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm"><span class="block text-[14px] text-slate-400">DRINK</span><strong>DRANK</strong></div>
+                            <div class="p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm"><span class="block text-[14px] text-slate-400">SLEEP</span><strong>SLEPT</strong></div>
                         </div>
 
                         <a href="https://www.oxfordonlineenglish.com/irregular-verbs-list" target="_blank" class="flex items-center justify-center gap-3 p-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-amber-200 dark:shadow-none group">
@@ -1674,7 +2113,7 @@
                     <div class="relative py-10 md:py-12 px-8 md:px-10 rounded-[2rem] md:rounded-[3rem] bg-gradient-to-r from-blue-600 to-indigo-700 overflow-hidden text-white shadow-xl">
                        <div class="relative z-10 flex flex-col items-start gap-6">
                         <div>
-                            <p class="text-[10px] font-black uppercase tracking-[0.3em] mb-3 text-blue-100">Nivel A2 • Unit 4</p>
+                            <p class="text-[14px] font-black uppercase tracking-[0.3em] mb-3 text-blue-100">Nivel A2 • Unit 4</p>
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Past Continuous</h2>
                             <p class="text-blue-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Describe acciones en progreso en el pasado y cómo se relacionan con otros eventos.</p>
                         </div>
@@ -1723,21 +2162,21 @@
                         <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border-2 border-blue-500/10 shadow-lg">
                             <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4 font-black">+</div>
                             <h4 class="font-bold text-lg mb-2 uppercase tracking-tighter">Affirmative</h4>
-                            <p class="text-[10px] text-slate-400 mb-4 uppercase">I/He/She/It was • You/We/They were</p>
+                            <p class="text-[14px] text-slate-400 mb-4 uppercase">I/He/She/It was • You/We/They were</p>
                             <p class="text-sm font-medium border-l-2 border-blue-500 pl-3">"They <strong>were playing</strong> tennis at 5 PM."</p>
                         </div>
                         
                         <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border-2 border-red-500/10 shadow-lg">
                             <div class="w-10 h-10 bg-red-100 text-red-600 rounded-xl flex items-center justify-center mb-4 font-black">-</div>
                             <h4 class="font-bold text-lg mb-2 uppercase tracking-tighter">Negative</h4>
-                            <p class="text-[10px] text-slate-400 mb-4 uppercase">Wasn't / Weren't</p>
+                            <p class="text-[14px] text-slate-400 mb-4 uppercase">Wasn't / Weren't</p>
                             <p class="text-sm font-medium border-l-2 border-red-500 pl-3">"She <strong>wasn't watching</strong> TV."</p>
                         </div>
 
                         <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border-2 border-amber-500/10 shadow-lg">
                             <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-4 font-black">?</div>
                             <h4 class="font-bold text-lg mb-2 uppercase tracking-tighter">Question</h4>
-                            <p class="text-[10px] text-slate-400 mb-4 uppercase">Was/Were + Subj + Ing...?</p>
+                            <p class="text-[14px] text-slate-400 mb-4 uppercase">Was/Were + Subj + Ing...?</p>
                             <p class="text-sm font-medium border-l-2 border-amber-500 pl-3">"<strong>Were</strong> you <strong>studying</strong> last night?"</p>
                         </div>
                     </div>
@@ -1756,7 +2195,7 @@
                                     <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border-l-4 border-slate-400 italic">
                                         "When the bell <strong>rang</strong>, the students <strong>left</strong> the classroom."
                                     </div>
-                                    <p class="text-[10px] text-slate-400 mt-2">Significado: Sonó la campana y LUEGO se fueron.</p>
+                                    <p class="text-[14px] text-slate-400 mt-2">Significado: Sonó la campana y LUEGO se fueron.</p>
                                 </div>
                             </div>
                         </div>
@@ -1771,7 +2210,7 @@
                                     <div class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-2xl border-l-4 border-blue-500 italic">
                                         "My mom <strong>was cooking</strong> while I <strong>was doing</strong> my homework."
                                     </div>
-                                    <p class="text-[10px] text-slate-400 mt-2">Significado: Las dos actividades ocurrían en paralelo.</p>
+                                    <p class="text-[14px] text-slate-400 mt-2">Significado: Las dos actividades ocurrían en paralelo.</p>
                                 </div>
                             </div>
                         </div>
@@ -1786,7 +2225,7 @@
                                     <div class="p-4 bg-white/10 backdrop-blur-sm rounded-2xl border-l-4 border-amber-400 italic">
                                         "I <strong>was taking</strong> a shower when the phone <strong>rang</strong>."
                                     </div>
-                                    <p class="text-[10px] text-indigo-200 mt-2 uppercase font-bold tracking-widest">TIP: "When" suele ir antes del Past Simple.</p>
+                                    <p class="text-[14px] text-indigo-200 mt-2 uppercase font-bold tracking-widest">TIP: "When" suele ir antes del Past Simple.</p>
                                 </div>
                             </div>
                             <i class="fas fa-hand-paper absolute -bottom-8 -right-8 text-9xl text-white/10 -rotate-12 group-hover:scale-110 transition-transform"></i>
@@ -1800,22 +2239,22 @@
                         </h3>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl">
-                                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Normal</span>
+                                <span class="text-[14px] font-black text-slate-400 uppercase tracking-widest">Normal</span>
                                 <p class="font-bold">+ <strong>ing</strong></p>
                                 <p class="text-xs text-slate-500 italic mt-1">Wait → Waiting / Go → Going</p>
                             </div>
                             <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl">
-                                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Termina en -E</span>
+                                <span class="text-[14px] font-black text-slate-400 uppercase tracking-widest">Termina en -E</span>
                                 <p class="font-bold">Quita la E + <strong>ing</strong></p>
                                 <p class="text-xs text-slate-500 italic mt-1">Dance → Dancing / Write → Writing</p>
                             </div>
                             <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl">
-                                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Termina en -IE</span>
+                                <span class="text-[14px] font-black text-slate-400 uppercase tracking-widest">Termina en -IE</span>
                                 <p class="font-bold">Cambia IE por <strong>Y + ing</strong></p>
                                 <p class="text-xs text-slate-500 italic mt-1">Lie → Lying / Die → Dying</p>
                             </div>
                             <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl">
-                                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">CVC</span>
+                                <span class="text-[14px] font-black text-slate-400 uppercase tracking-widest">CVC</span>
                                 <p class="font-bold">Duplica consonante + <strong>ing</strong></p>
                                 <p class="text-xs text-slate-500 italic mt-1">Run → Running / Swim → Swimming</p>
                             </div>
@@ -1874,7 +2313,7 @@
                     <div class="relative py-8 md:py-12 px-6 md:px-10 rounded-[2rem] md:rounded-[3rem] bg-gradient-to-r from-purple-600 to-fuchsia-700 overflow-hidden text-white shadow-xl">
                         <div class="relative z-10 flex flex-col items-start gap-6">
                             <div>
-                            <p class="text-[10px] font-black uppercase tracking-[0.3em] mb-3 text-purple-100">Nivel A2 • Unit 5</p>
+                            <p class="text-[14px] font-black uppercase tracking-[0.3em] mb-3 text-purple-100">Nivel A2 • Unit 5</p>
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Comparative & Superlative Adverbs</h2>
                             <p class="text-purple-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Aprende a describir CÓMO se realizan las acciones con mayor o menor intensidad.</p>
                         </div>
@@ -1935,7 +2374,7 @@
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse">
                                 <thead>
-                                    <tr class="text-[10px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-100 dark:border-slate-800">
+                                    <tr class="text-[14px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-100 dark:border-slate-800">
                                         <th class="px-6 py-4">Adjective</th>
                                         <th class="px-6 py-4">Adverb</th>
                                         <th class="px-6 py-4">Comparative</th>
@@ -2024,7 +2463,7 @@
                     <div class="relative py-10 px-8 md:px-10 rounded-[2rem] md:rounded-[3rem] bg-gradient-to-r from-rose-500 to-orange-600 overflow-hidden text-white shadow-xl">
                        <div class="relative z-10 flex flex-col items-start gap-6">
                          <div>
-                            <p class="text-[10px] font-black uppercase tracking-[0.3em] mb-3 text-rose-100">Nivel A2 • Unit 6</p>
+                            <p class="text-[14px] font-black uppercase tracking-[0.3em] mb-3 text-rose-100">Nivel A2 • Unit 6</p>
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Possession & Ownership</h2>
                             <p class="text-rose-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">¿A quién pertenece? Aprende el uso de adjetivos, pronombres y el genitivo sajón.</p>
                         </div>
@@ -2064,17 +2503,17 @@
                                 <div class="p-4 bg-rose-50 dark:bg-rose-900/20 rounded-2xl border-l-4 border-rose-500">
                                     <p class="text-xs font-bold uppercase text-rose-700 dark:text-rose-400 mb-1">Singular (Person + 's)</p>
                                     <p class="text-sm italic font-semibold">"Mary's car is red."</p>
-                                    <p class="text-[10px] text-slate-500">(El coche de Mary)</p>
+                                    <p class="text-[14px] text-slate-500">(El coche de Mary)</p>
                                 </div>
                                 <div class="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-2xl border-l-4 border-orange-500">
                                     <p class="text-xs font-bold uppercase text-orange-700 dark:text-orange-400 mb-1">Plural ending in -s (Noun + ')</p>
                                     <p class="text-sm italic font-semibold">"My parents' house."</p>
-                                    <p class="text-[10px] text-slate-500">(La casa de mis padres) el ' va al final porque es en plural</p>
+                                    <p class="text-[14px] text-slate-500">(La casa de mis padres) el ' va al final porque es en plural</p>
                                 </div>
                                 <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl border-l-4 border-slate-400">
                                     <p class="text-xs font-bold uppercase text-slate-600 dark:text-slate-400 mb-1">Irregular Plural (+ 's)</p>
                                     <p class="text-sm italic font-semibold">"The children's toys."</p>
-                                    <p class="text-[10px] text-slate-500">(Los juguetes de los niños)</p>
+                                    <p class="text-[14px] text-slate-500">(Los juguetes de los niños)</p>
                                 </div>
                             </div>
                         </div>
@@ -2098,7 +2537,7 @@
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse">
                                 <thead>
-                                    <tr class="text-[10px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-100 dark:border-slate-800">
+                                    <tr class="text-[14px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-100 dark:border-slate-800">
                                         <th class="px-6 py-4">Subject</th>
                                         <th class="px-6 py-4 text-rose-600">Determiner (Adjective)</th>
                                         <th class="px-6 py-4 text-orange-600">Possessive Pronoun</th>
@@ -2172,7 +2611,7 @@
                             <p class="text-sm text-slate-500 mb-4">Usamos <strong>Whose</strong> para preguntar "¿De quién es?".</p>
                             <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl">
                                 <p class="font-bold italic">"Whose book is this?"</p>
-                                <p class="text-[10px] mt-1 italic">"It's Tom's." / "It's mine."</p>
+                                <p class="text-[14px] mt-1 italic">"It's Tom's." / "It's mine."</p>
                             </div>
                         </div>
                     </section>
@@ -2187,7 +2626,7 @@
                     <div class="relative py-8 md:py-12 px-6 md:px-10 rounded-[2rem] md:rounded-[3rem] bg-gradient-to-r from-cyan-500 to-blue-600 overflow-hidden text-white shadow-xl">
                         <div class="relative z-10 flex flex-col items-start gap-6">
                             <div>
-                            <p class="text-[10px] font-black uppercase tracking-[0.3em] mb-3 text-cyan-100">Nivel A2 • Unit 7</p>
+                            <p class="text-[14px] font-black uppercase tracking-[0.3em] mb-3 text-cyan-100">Nivel A2 • Unit 7</p>
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Present Continuous for Future</h2>
                             <p class="text-cyan-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">No solo sirve para lo que pasa "ahora". Aprende a usarlo para tus planes ya confirmados.</p>
                         </div>
@@ -2228,7 +2667,7 @@
                             </p>
                             <div class="p-4 bg-cyan-50 dark:bg-cyan-900/20 rounded-2xl border-l-4 border-cyan-500 italic text-sm">
                                 "I'm meeting my doctor at 5:00." <br>
-                                <span class="text-[10px] text-slate-500">(La cita ya está en mi agenda)</span>
+                                <span class="text-[14px] text-slate-500">(La cita ya está en mi agenda)</span>
                             </div>
                         </div>
 
@@ -2250,19 +2689,19 @@
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <!-- Positiva -->
                             <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
-                                <span class="px-3 py-1 bg-green-100 text-green-700 text-[10px] font-black rounded-full uppercase">Affirmative</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 text-[14px] font-black rounded-full uppercase">Affirmative</span>
                                 <p class="mt-4 font-bold text-slate-700 dark:text-slate-200">Subject + am/is/are + verb-ing</p>
                                 <p class="mt-2 text-sm italic text-slate-500">"We <strong>are flying</strong> to Rome next week."</p>
                             </div>
                             <!-- Negativa -->
                             <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
-                                <span class="px-3 py-1 bg-red-100 text-red-700 text-[10px] font-black rounded-full uppercase">Negative</span>
+                                <span class="px-3 py-1 bg-red-100 text-red-700 text-[14px] font-black rounded-full uppercase">Negative</span>
                                 <p class="mt-4 font-bold text-slate-700 dark:text-slate-200">Subj + am/is/are + NOT + verb-ing</p>
                                 <p class="mt-2 text-sm italic text-slate-500">"He <strong>isn't working</strong> this weekend."</p>
                             </div>
                             <!-- Pregunta -->
                             <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
-                                <span class="px-3 py-1 bg-blue-100 text-blue-700 text-[10px] font-black rounded-full uppercase">Question</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 text-[14px] font-black rounded-full uppercase">Question</span>
                                 <p class="mt-4 font-bold text-slate-700 dark:text-slate-200">Am/Is/Are + Subject + verb-ing?</p>
                                 <p class="mt-2 text-sm italic text-slate-500">"<strong>Are</strong> you <strong>coming</strong> to the party?"</p>
                             </div>
@@ -2273,24 +2712,24 @@
                     <section class="bg-white dark:bg-slate-900 overflow-hidden rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm">
                         <div class="p-6 md:p-8 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 flex justify-between items-center">
                             <h3 class="text-xl font-bold italic">Common Time Expressions</h3>
-                            <span class="text-[10px] text-cyan-600 font-bold uppercase">Claves para el futuro</span>
+                            <span class="text-[14px] text-cyan-600 font-bold uppercase">Claves para el futuro</span>
                         </div>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-y divide-slate-100 dark:divide-slate-800">
                             <div class="p-6 text-center hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                                 <p class="font-bold">Tonight</p>
-                                <p class="text-[10px] text-slate-400">Esta noche</p>
+                                <p class="text-[14px] text-slate-400">Esta noche</p>
                             </div>
                             <div class="p-6 text-center hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                                 <p class="font-bold">Tomorrow</p>
-                                <p class="text-[10px] text-slate-400">Mañana</p>
+                                <p class="text-[14px] text-slate-400">Mañana</p>
                             </div>
                             <div class="p-6 text-center hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                                 <p class="font-bold">Next week</p>
-                                <p class="text-[10px] text-slate-400">La próxima semana</p>
+                                <p class="text-[14px] text-slate-400">La próxima semana</p>
                             </div>
                             <div class="p-6 text-center hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                                 <p class="font-bold">This weekend</p>
-                                <p class="text-[10px] text-slate-400">Este fin de semana</p>
+                                <p class="text-[14px] text-slate-400">Este fin de semana</p>
                             </div>
                         </div>
                     </section>
@@ -2310,7 +2749,7 @@
                             <p class="text-sm text-slate-500 leading-relaxed">
                                 Si no usas una expresión de tiempo (como "tomorrow"), la gente pensará que estás haciendo la acción <strong>ahora mismo</strong>.
                             </p>
-                            <div class="mt-4 grid grid-cols-2 gap-2 text-[10px]">
+                            <div class="mt-4 grid grid-cols-2 gap-2 text-[14px]">
                                 <div class="p-2 bg-slate-50 dark:bg-slate-800 rounded">"I'm working" <br> (Ahora)</div>
                                 <div class="p-2 bg-cyan-50 dark:bg-cyan-900/30 rounded font-bold">"I'm working tomorrow" <br> (Futuro)</div>
                             </div>
@@ -2327,7 +2766,7 @@
                     <div class="relative py-8 md:py-12 px-6 md:px-10 rounded-[2rem] md:rounded-[3rem] bg-gradient-to-r from-violet-600 to-indigo-600 overflow-hidden text-white shadow-xl">
                        <div class="relative z-10 flex flex-col items-start gap-6">
                             <div>
-                            <p class="text-[10px] font-black uppercase tracking-[0.3em] mb-3 text-violet-100">Nivel A2 • Unit 8</p>
+                            <p class="text-[14px] font-black uppercase tracking-[0.3em] mb-3 text-violet-100">Nivel A2 • Unit 8</p>
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Future with Will, May & Might</h2>
                             <p class="text-violet-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Predicciones, decisiones rápidas y posibilidades inciertas.</p>
                         </div>
@@ -2388,17 +2827,17 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800">
-                                <span class="px-3 py-1 bg-green-100 text-green-700 text-[10px] font-black rounded-full uppercase">Positive</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 text-[14px] font-black rounded-full uppercase">Positive</span>
                                 <p class="mt-4 font-bold text-slate-700 dark:text-slate-200">Subj + will + verb (base)</p>
                                 <p class="mt-2 text-sm italic text-slate-500">"I <strong>will call</strong> you later."</p>
                             </div>
                             <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800">
-                                <span class="px-3 py-1 bg-red-100 text-red-700 text-[10px] font-black rounded-full uppercase">Negative</span>
+                                <span class="px-3 py-1 bg-red-100 text-red-700 text-[14px] font-black rounded-full uppercase">Negative</span>
                                 <p class="mt-4 font-bold text-slate-700 dark:text-slate-200">Subj + won't + verb (base)</p>
                                 <p class="mt-2 text-sm italic text-slate-500">"They <strong>won't come</strong> today."</p>
                             </div>
                             <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800">
-                                <span class="px-3 py-1 bg-blue-100 text-blue-700 text-[10px] font-black rounded-full uppercase">Question</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 text-[14px] font-black rounded-full uppercase">Question</span>
                                 <p class="mt-4 font-bold text-slate-700 dark:text-slate-200">Will + Subj + verb (base)?</p>
                                 <p class="mt-2 text-sm italic text-slate-500">"<strong>Will</strong> it <strong>rain</strong> tonight?"</p>
                             </div>
@@ -2431,17 +2870,17 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800">
-                                <span class="px-3 py-1 bg-green-100 text-green-700 text-[10px] font-black rounded-full uppercase">Positive</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 text-[14px] font-black rounded-full uppercase">Positive</span>
                                 <p class="mt-4 font-bold text-slate-700 dark:text-slate-200">Subj + may/might + verb</p>
                                 <p class="mt-2 text-sm italic text-slate-500">"We <strong>might travel</strong> soon."</p>
                             </div>
                             <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800">
-                                <span class="px-3 py-1 bg-red-100 text-red-700 text-[10px] font-black rounded-full uppercase">Negative</span>
+                                <span class="px-3 py-1 bg-red-100 text-red-700 text-[14px] font-black rounded-full uppercase">Negative</span>
                                 <p class="mt-4 font-bold text-slate-700 dark:text-slate-200">Subj + may/might NOT + verb</p>
                                 <p class="mt-2 text-sm italic text-slate-500">"She <strong>might not arrive</strong>."</p>
                             </div>
                             <div class="p-6 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800">
-                                <span class="px-3 py-1 bg-amber-100 text-amber-700 text-[10px] font-black rounded-full uppercase">Note</span>
+                                <span class="px-3 py-1 bg-amber-100 text-amber-700 text-[14px] font-black rounded-full uppercase">Note</span>
                                 <p class="mt-4 text-sm text-slate-600 leading-relaxed italic">
                                     Las preguntas con may/might son muy <strong>raras</strong> en futuro. Es mejor usar "Do you think... will...?"
                                 </p>
@@ -2499,7 +2938,7 @@
                     <div class="relative py-8 md:py-12 px-6 md:px-10 rounded-[2rem] md:rounded-[3rem] bg-gradient-to-r from-emerald-600 to-teal-700 overflow-hidden text-white shadow-xl">
                         <div class="relative z-10 flex flex-col items-start gap-6">
                             <div>
-                            <p class="text-[10px] font-black uppercase tracking-[0.3em] mb-3 text-emerald-100">Nivel A2 • Unit 9</p>
+                            <p class="text-[14px] font-black uppercase tracking-[0.3em] mb-3 text-emerald-100">Nivel A2 • Unit 9</p>
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Modal Verbs: Must & Have to</h2>
                             <p class="text-emerald-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Expresa obligación, prohibición y necesidad con precisión.</p>
                         </div>
@@ -2540,7 +2979,7 @@
                             </p>
                             <div class="p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl border-l-4 border-emerald-500 italic text-sm">
                                 "I <strong>must</strong> study for the exam." <br>
-                                <span class="text-[10px] text-slate-500">(Yo decido que es importante)</span>
+                                <span class="text-[14px] text-slate-500">(Yo decido que es importante)</span>
                             </div>
                         </div>
 
@@ -2553,7 +2992,7 @@
                             </p>
                             <div class="p-4 bg-teal-50 dark:bg-teal-900/20 rounded-2xl border-l-4 border-teal-500 italic text-sm">
                                 "I <strong>have to</strong> wear a uniform." <br>
-                                <span class="text-[10px] text-slate-500">(Es la regla del colegio/empresa)</span>
+                                <span class="text-[14px] text-slate-500">(Es la regla del colegio/empresa)</span>
                             </div>
                         </div>
                     </section>
@@ -2562,7 +3001,7 @@
                     <section class="space-y-6">
                         <div class="flex items-center justify-between px-4">
                             <h3 class="text-2xl font-black italic">Grammar & Forms</h3>
-                            <span class="text-[10px] font-bold py-1 px-3 bg-amber-100 text-amber-700 rounded-full">¡Ojo con He/She/It!</span>
+                            <span class="text-[14px] font-bold py-1 px-3 bg-amber-100 text-amber-700 rounded-full">¡Ojo con He/She/It!</span>
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -2572,7 +3011,7 @@
                                 <ul class="space-y-2 text-sm">
                                     <li class="flex justify-between"><span>Positive:</span> <span class="font-mono">Subj + must + verb</span></li>
                                     <li class="flex justify-between text-slate-400 italic"><span>Ex:</span> <span>He must go.</span></li>
-                                    <li class="border-t border-slate-800 mt-3 pt-3 text-[11px] text-emerald-300">
+                                    <li class="border-t border-slate-800 mt-3 pt-3 text-[13px] text-emerald-300">
                                         <i class="fas fa-info-circle mr-1"></i> Must es modal: nunca usa "s" ni "to".
                                     </li>
                                 </ul>
@@ -2584,7 +3023,7 @@
                                 <ul class="space-y-2 text-sm">
                                     <li class="flex justify-between"><span>I/You/We/They:</span> <span class="font-bold">have to</span></li>
                                     <li class="flex justify-between text-teal-500 font-bold"><span>He/She/It:</span> <span>has to</span></li>
-                                    <li class="border-t border-slate-100 dark:border-slate-700 mt-3 pt-3 text-[11px] text-slate-500">
+                                    <li class="border-t border-slate-100 dark:border-slate-700 mt-3 pt-3 text-[13px] text-slate-500">
                                         "She <strong>has to</strong> finish her homework."
                                     </li>
                                 </ul>
@@ -2674,7 +3113,7 @@
                     <div class="relative py-8 md:py-12 px-6 md:px-10 rounded-[2rem] md:rounded-[3rem] bg-gradient-to-r from-orange-500 to-rose-600 overflow-hidden text-white shadow-xl">
                         <div class="relative z-10 flex flex-col items-start gap-6">
                             <div>
-                            <p class="text-[10px] font-black uppercase tracking-[0.3em] mb-3 text-orange-100">Nivel A2 • Unit 10</p>
+                            <p class="text-[14px] font-black uppercase tracking-[0.3em] mb-3 text-orange-100">Nivel A2 • Unit 10</p>
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Verb Patterns: Gerunds vs Infinitives</h2>
                             <p class="text-orange-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">¿Ing o Infinitivo? Aprende las reglas para combinar dos verbos correctamente.</p>
                         </div>
@@ -2749,7 +3188,7 @@
                             </div>
                             <div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl border-l-4 border-blue-500 italic text-sm">
                                 "We <strong>decided to buy</strong> a new car." <br>
-                                <span class="text-[10px] text-slate-500">(Decidimos comprar un auto nuevo)</span>
+                                <span class="text-[14px] text-slate-500">(Decidimos comprar un auto nuevo)</span>
                             </div>
                         </div>
                     </section>
@@ -2770,7 +3209,7 @@
                             </div>
                             <div class="p-3 bg-rose-50 dark:bg-rose-900/20 rounded-xl border-l-4 border-rose-500 italic text-sm">
                                 "I <strong>don't mind waiting</strong> for you." <br>
-                                <span class="text-[10px] text-slate-500">(No me importa esperar por ti)</span>
+                                <span class="text-[14px] text-slate-500">(No me importa esperar por ti)</span>
                             </div>
                         </div>
                     </section>
@@ -2829,7 +3268,7 @@
                     <div class="relative py-8 md:py-12 px-6 md:px-10 rounded-[2rem] md:rounded-[3rem] bg-gradient-to-r from-violet-600 to-indigo-700 overflow-hidden text-white shadow-xl">
                         <div class="relative z-10 flex flex-col items-start gap-6">
                             <div>
-                            <p class="text-[10px] font-black uppercase tracking-[0.3em] mb-3 text-violet-100">Nivel A2 • Unit 11</p>
+                            <p class="text-[14px] font-black uppercase tracking-[0.3em] mb-3 text-violet-100">Nivel A2 • Unit 11</p>
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Determiners: Articles & Quantifiers</h2>
                             <p class="text-violet-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Aprende a especificar sustantivos usando The/A/An y palabras como All, Both, Other.</p>
                         </div>
@@ -2906,7 +3345,7 @@
                                 </ul>
                                 <div class="p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl italic text-xs">
                                     "Can you close <strong>the</strong> door?" <br>
-                                    <span class="text-[10px] opacity-70">(Ambos sabemos de qué puerta hablamos).</span>
+                                    <span class="text-[14px] opacity-70">(Ambos sabemos de qué puerta hablamos).</span>
                                 </div>
                             </div>
                         </div>
@@ -2930,12 +3369,12 @@
                                         <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl">
                                             <p class="text-xs font-bold text-emerald-600 mb-1">ALL (Todo/Todos)</p>
                                             <p class="text-sm">Para 3 o más elementos o un conjunto completo.</p>
-                                            <p class="text-[11px] italic mt-1 opacity-70">"All the students are here."</p>
+                                            <p class="text-[13px] italic mt-1 opacity-70">"All the students are here."</p>
                                         </div>
                                         <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl">
                                             <p class="text-xs font-bold text-emerald-600 mb-1">BOTH (Ambos)</p>
                                             <p class="text-sm">Específicamente para <strong>dos</strong> cosas/personas.</p>
-                                            <p class="text-[11px] italic mt-1 opacity-70">"Both my parents are doctors."</p>
+                                            <p class="text-[13px] italic mt-1 opacity-70">"Both my parents are doctors."</p>
                                         </div>
                                     </div>
                                 </div>
@@ -2953,12 +3392,12 @@
                                         <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl border-l-4 border-rose-400">
                                             <p class="text-xs font-bold text-rose-600 mb-1">ANOTHER + Singular</p>
                                             <p class="text-sm">Significa "uno más" o "uno diferente".</p>
-                                            <p class="text-[11px] italic mt-1 opacity-70">"I need <strong>another</strong> coffee." (Uno más)</p>
+                                            <p class="text-[13px] italic mt-1 opacity-70">"I need <strong>another</strong> coffee." (Uno más)</p>
                                         </div>
                                         <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl border-l-4 border-slate-400">
                                             <p class="text-xs font-bold text-slate-500 mb-1">OTHER + Plural / Incontable</p>
                                             <p class="text-sm">Significa "otros" en general.</p>
-                                            <p class="text-[11px] italic mt-1 opacity-70">"I want to see <strong>other</strong> places."</p>
+                                            <p class="text-[13px] italic mt-1 opacity-70">"I want to see <strong>other</strong> places."</p>
                                         </div>
                                     </div>
                                 </div>
@@ -2974,7 +3413,7 @@
                         </h4>
                         <div class="overflow-x-auto">
                             <table class="w-full text-sm text-left">
-                                <thead class="text-[10px] uppercase tracking-widest opacity-70">
+                                <thead class="text-[14px] uppercase tracking-widest opacity-70">
                                     <tr>
                                         <th class="pb-4">Word</th>
                                         <th class="pb-4">Used with...</th>
@@ -3012,7 +3451,7 @@
                     <div class="relative py-8 md:py-12 px-6 md:px-10 rounded-[2rem] md:rounded-[3rem] bg-gradient-to-r from-blue-600 to-cyan-700 overflow-hidden text-white shadow-xl">
                         <div class="relative z-10 flex flex-col items-start gap-6">
                             <div>
-                            <p class="text-[10px] font-black uppercase tracking-[0.3em] mb-3 text-blue-100">Nivel A2 • Unit 12</p>
+                            <p class="text-[14px] font-black uppercase tracking-[0.3em] mb-3 text-blue-100">Nivel A2 • Unit 12</p>
                             <h2 class="text-3xl md:text-5xl font-extrabold italic mb-4 leading-tight">Relative Pronouns: Who, Which, That</h2>
                             <p class="text-blue-50 max-w-2xl text-base md:text-lg leading-relaxed opacity-90">Aprende a unir frases y dar más información sobre personas y objetos.</p>
                         </div>
@@ -3085,11 +3524,11 @@
                             <p class="opacity-90 text-sm mb-6">En la mayoría de los casos informales, <strong>THAT</strong> puede reemplazar a Who y Which.</p>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div class="bg-white/10 p-4 rounded-2xl backdrop-blur-sm">
-                                    <p class="text-[10px] uppercase font-bold opacity-70 mb-1">Con Personas</p>
+                                    <p class="text-[14px] uppercase font-bold opacity-70 mb-1">Con Personas</p>
                                     <p class="text-sm italic">"The girl <strong>that</strong> works here."</p>
                                 </div>
                                 <div class="bg-white/10 p-4 rounded-2xl backdrop-blur-sm">
-                                    <p class="text-[10px] uppercase font-bold opacity-70 mb-1">Con Cosas</p>
+                                    <p class="text-[14px] uppercase font-bold opacity-70 mb-1">Con Cosas</p>
                                     <p class="text-sm italic">"The car <strong>that</strong> I want."</p>
                                 </div>
                             </div>
@@ -3107,7 +3546,7 @@
                                 Puedes omitir Who/Which/That si después del pronombre hay otro <strong>sujeto</strong> (persona/nombre).
                             </p>
                             <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl">
-                                <p class="text-[11px]">"The movie <strong>(that)</strong> <u>we</u> watched was great."</p>
+                                <p class="text-[14px]">"The movie <strong>(that)</strong> <u>we</u> watched was great."</p>
                             </div>
                         </div>
                         <div class="p-8 bg-slate-900 text-white rounded-[2.5rem]">
@@ -3118,7 +3557,7 @@
                                 NO puedes omitirlos si el pronombre actúa como el <strong>sujeto</strong> del siguiente verbo.
                             </p>
                             <div class="p-3 bg-white/10 rounded-xl">
-                                <p class="text-[11px]">"A nurse is a person <strong>who</strong> <u>works</u> in a hospital."</p>
+                                <p class="text-[14px]">"A nurse is a person <strong>who</strong> <u>works</u> in a hospital."</p>
                             </div>
                         </div>
                     </div>
@@ -3127,13 +3566,13 @@
         }
 
         function renderUnit13A2() {
-    return `
+         return `
         <div class="animate-content space-y-8 md:space-y-12 pb-20">
             <!-- Cabecera Hero -->
             <div class="relative py-8 md:py-12 px-6 md:px-10 rounded-[2.5rem] md:rounded-[3rem] bg-emerald-600 overflow-hidden text-white shadow-2xl">
                 <div class="relative z-10 flex flex-col items-start gap-6">
                     <div class="space-y-2">
-                        <p class="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-100 opacity-90">
+                        <p class="text-[14px] font-black uppercase tracking-[0.3em] text-emerald-100 opacity-90">
                             Nivel A2 • Unit 13
                         </p>
                         <h2 class="text-3xl md:text-5xl lg:text-6xl font-extrabold italic leading-tight">
@@ -3194,7 +3633,7 @@
                 <div class="p-8 bg-emerald-900 text-white rounded-[2.5rem] flex flex-col justify-center">
                     <h4 class="font-bold text-emerald-400 mb-2 uppercase tracking-widest text-xs">Fórmula Clave</h4>
                     <p class="text-2xl font-black italic mb-2">HAVE / HAS + Past Participle</p>
-                    <p class="text-[10px] opacity-70 italic">Recuerda: He/She/It usa <strong>HAS</strong></p>
+                    <p class="text-[14px] opacity-70 italic">Recuerda: He/She/It usa <strong>HAS</strong></p>
                 </div>
             </section>
 
@@ -3287,7 +3726,7 @@
                         <div class="space-y-6">
                             <!-- Ever en Preguntas -->
                             <div class="bg-white dark:bg-slate-900 p-6 rounded-[2rem] shadow-sm border border-indigo-100">
-                                <span class="text-[10px] font-black text-indigo-400 uppercase mb-2 block">USO PRINCIPAL: PREGUNTAS</span>
+                                <span class="text-[14px] font-black text-indigo-400 uppercase mb-2 block">USO PRINCIPAL: PREGUNTAS</span>
                                 <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Se coloca entre el sujeto y el verbo principal.</p>
                                 <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border-l-4 border-indigo-600 font-mono text-sm mb-4">
                                     Have + Subj + <span class="text-indigo-600 font-bold italic underline">ever</span> + Participle?
@@ -3296,7 +3735,7 @@
                                 <!-- EJEMPLO PREGUNTA Y RESPUESTA -->
                                 <div class="space-y-3 p-4 bg-indigo-50/50 dark:bg-indigo-900/20 rounded-2xl border border-indigo-100/50">
                                     <div class="flex items-center gap-2">
-                                        <span class="w-5 h-5 flex items-center justify-center bg-indigo-600 text-white rounded-full text-[10px] font-bold">Q</span>
+                                        <span class="w-5 h-5 flex items-center justify-center bg-indigo-600 text-white rounded-full text-[14px] font-bold">Q</span>
                                         <p class="text-sm italic font-medium">"Have you <strong>ever</strong> seen a ghost?"</p>
                                     </div>
                                     <div class="flex flex-col gap-2 ml-7">
@@ -3314,18 +3753,18 @@
 
                             <!-- Ever en Negativas (Alternativo) -->
                             <div class="bg-white dark:bg-slate-900 p-6 rounded-[2rem] shadow-sm border border-indigo-100 opacity-80">
-                                <span class="text-[10px] font-black text-slate-400 uppercase mb-2 block">USO SECUNDARIO: NEGATIVAS</span>
+                                <span class="text-[14px] font-black text-slate-400 uppercase mb-2 block">USO SECUNDARIO: NEGATIVAS</span>
                                 <p class="text-xs text-slate-500 mb-4 font-medium italic">Se puede usar "Not... ever" como alternativa formal a "Never".</p>
                                 <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border-l-4 border-slate-300 font-mono text-xs mb-2">
                                     I haven't <span class="text-indigo-600 font-bold italic underline">ever</span> been there.
                                 </div>
-                                <p class="text-[10px] text-slate-400 font-bold">(= I have never been there)</p>
+                                <p class="text-[14px] text-slate-400 font-bold">(= I have never been there)</p>
                             </div>
 
                             <!-- Ever en Superlativos -->
                             <div class="p-4 bg-indigo-600 text-white rounded-2xl shadow-md">
                                 <p class="text-xs font-bold mb-1 uppercase italic text-center">💡 Superlative Trick</p>
-                                <p class="text-[11px] text-center opacity-90">"This is the <strong>best</strong> movie I've <strong>ever</strong> watched."</p>
+                                <p class="text-[13px] text-center opacity-90">"This is the <strong>best</strong> movie I've <strong>ever</strong> watched."</p>
                             </div>
                         </div>
                     </div>
@@ -3345,7 +3784,7 @@
                         <div class="space-y-6">
                             <!-- Never en Afirmativas -->
                             <div class="bg-white dark:bg-slate-900 p-6 rounded-[2rem] shadow-sm border border-rose-100">
-                                <span class="text-[10px] font-black text-rose-400 uppercase mb-2 block">GRAMÁTICA: FORMA AFIRMATIVA</span>
+                                <span class="text-[14px] font-black text-rose-400 uppercase mb-2 block">GRAMÁTICA: FORMA AFIRMATIVA</span>
                                 <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Never aporta el sentido negativo, por lo que el auxiliar (have/has) <strong>NO</strong> lleva "not".</p>
                                 <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border-l-4 border-rose-600 font-mono text-sm mb-4">
                                     Subj + have/has + <span class="text-rose-600 font-bold italic underline">never</span> + Participle
@@ -3354,7 +3793,7 @@
                                 <!-- EJEMPLO PREGUNTA Y RESPUESTA ACTUALIZADO -->
                                 <div class="space-y-3 p-4 bg-rose-50/50 dark:bg-rose-900/20 rounded-2xl border border-rose-100/50">
                                     <div class="flex items-center gap-2">
-                                        <span class="w-5 h-5 flex items-center justify-center bg-rose-600 text-white rounded-full text-[10px] font-bold">Q</span>
+                                        <span class="w-5 h-5 flex items-center justify-center bg-rose-600 text-white rounded-full text-[14px] font-bold">Q</span>
                                         <p class="text-sm italic font-medium">"Have you eaten snails?"</p>
                                     </div>
                                     <div class="flex flex-col gap-2 ml-7">
@@ -3362,7 +3801,7 @@
                                             <i class="fas fa-reply text-rose-500 text-xs"></i>
                                             <p class="text-xs font-bold italic">"No, I<strong>'ve never</strong> eaten snails."</p>
                                         </div>
-                                        <p class="text-[10px] text-slate-500 italic mt-1">(Respuesta completa utilizando la estructura correcta)</p>
+                                        <p class="text-[14px] text-slate-500 italic mt-1">(Respuesta completa utilizando la estructura correcta)</p>
                                     </div>
                                 </div>
                             </div>
@@ -3388,7 +3827,7 @@
                             <div class="bg-rose-600 text-white p-5 rounded-2xl shadow-md flex items-center gap-4">
                                 <div class="text-2xl opacity-50"><i class="fas fa-comment-dots"></i></div>
                                 <div>
-                                    <p class="text-[11px] font-bold opacity-80 uppercase tracking-tighter italic">Key Rule</p>
+                                    <p class="text-[13px] font-bold opacity-80 uppercase tracking-tighter italic">Key Rule</p>
                                     <p class="text-xs">"<strong>Never</strong>" ya es negativo. No añadas "Not".</p>
                                 </div>
                             </div>
@@ -3413,7 +3852,7 @@
                                 class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-bold transition-all shadow-lg flex items-center gap-2">
                                 <i class="fas fa-external-link-alt"></i> Verbos Irregulares
                             </a>
-                            <div class="flex gap-2 text-[10px] font-bold text-slate-500">
+                            <div class="flex gap-2 text-[14px] font-bold text-slate-500">
                                 <span class="px-2 py-1 bg-white/5 rounded">DO → DONE</span>
                                 <span class="px-2 py-1 bg-white/5 rounded">BE → BEEN</span>
                                 <span class="px-2 py-1 bg-white/5 rounded">GO → GONE</span>
@@ -3435,7 +3874,7 @@
             <div class="relative py-8 md:py-12 px-6 md:px-10 rounded-[2.5rem] md:rounded-[3rem] bg-indigo-600 overflow-hidden text-white shadow-2xl">
                 <div class="relative z-10 flex flex-col items-start gap-6">
                     <div class="space-y-2">
-                        <p class="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-100 opacity-90">
+                        <p class="text-[14px] font-black uppercase tracking-[0.3em] text-indigo-100 opacity-90">
                             Nivel A2 • Unit 14
                         </p>
                         <h2 class="text-3xl md:text-5xl lg:text-6xl font-extrabold italic leading-tight">
@@ -3479,17 +3918,17 @@
                 <div class="p-6 bg-slate-900 dark:bg-slate-800 text-white rounded-[2.5rem] flex flex-col items-center text-center space-y-3 shadow-lg">
                     <i class="fas fa-map-marker-alt text-amber-500 text-2xl"></i>
                     <h5 class="font-black italic text-xs uppercase">Posición de Just/Already</h5>
-                    <p class="text-[10px] text-slate-400 dark:text-slate-300">Siempre van en el "sándwich": <br> <b>HAVE < [Aquí] > VERBO</b></p>
+                    <p class="text-[14px] text-slate-400 dark:text-slate-300">Siempre van en el "sándwich": <br> <b>HAVE < [Aquí] > VERBO</b></p>
                 </div>
                 <div class="p-6 bg-slate-900 dark:bg-slate-800 text-white rounded-[2.5rem] flex flex-col items-center text-center space-y-3 shadow-lg">
                     <i class="fas fa-arrow-right text-indigo-500 text-2xl"></i>
                     <h5 class="font-black italic text-xs uppercase">Posición de Yet</h5>
-                    <p class="text-[10px] text-slate-400 dark:text-slate-300 font-bold">¡SIEMPRE AL FINAL! <br> No lo pongas nunca en el medio.</p>
+                    <p class="text-[14px] text-slate-400 dark:text-slate-300 font-bold">¡SIEMPRE AL FINAL! <br> No lo pongas nunca en el medio.</p>
                 </div>
                 <div class="p-6 bg-slate-900 dark:bg-slate-800 text-white rounded-[2.5rem] flex flex-col items-center text-center space-y-3 shadow-lg">
                     <i class="fas fa-ban text-rose-500 text-2xl"></i>
                     <h5 class="font-black italic text-xs uppercase">Prohibido</h5>
-                    <p class="text-[10px] text-slate-400 dark:text-slate-300">Nunca uses "Yesterday" con estas palabras. Es Present Perfect, no Past Simple.</p>
+                    <p class="text-[14px] text-slate-400 dark:text-slate-300">Nunca uses "Yesterday" con estas palabras. Es Present Perfect, no Past Simple.</p>
                 </div>
             </footer>
 
@@ -3516,7 +3955,7 @@
                                 <td class="p-6">
                                     <div class="flex flex-col">
                                         <span class="text-2xl font-black text-amber-500 italic">JUST</span>
-                                        <span class="text-[10px] font-bold text-slate-400 uppercase">"Acabar de"</span>
+                                        <span class="text-[14px] font-bold text-slate-400 uppercase">"Acabar de"</span>
                                     </div>
                                 </td>
                                 <td class="p-6 leading-relaxed">Algo que pasó hace un <span class="font-bold underline decoration-amber-500 text-slate-800 dark:text-slate-200">momento cortísimo</span>.</td>
@@ -3525,7 +3964,7 @@
                                 </td>
                                 <td class="p-6">
                                     <p class="text-xs italic text-slate-600 dark:text-slate-400">"I've <b>just</b> seen them."</p>
-                                    <p class="text-[10px] text-slate-400 dark:text-slate-500">Acabo de verlos.</p>
+                                    <p class="text-[14px] text-slate-400 dark:text-slate-500">Acabo de verlos.</p>
                                 </td>
                             </tr>
                             <!-- ALREADY -->
@@ -3533,7 +3972,7 @@
                                 <td class="p-6">
                                     <div class="flex flex-col">
                                         <span class="text-2xl font-black text-blue-500 italic">ALREADY</span>
-                                        <span class="text-[10px] font-bold text-slate-400 uppercase">"Ya"</span>
+                                        <span class="text-[14px] font-bold text-slate-400 uppercase">"Ya"</span>
                                     </div>
                                 </td>
                                 <td class="p-6 leading-relaxed">Algo que pasó <span class="font-bold underline decoration-blue-500 text-slate-800 dark:text-slate-200">antes de lo esperado</span>.</td>
@@ -3542,7 +3981,7 @@
                                 </td>
                                 <td class="p-6">
                                     <p class="text-xs italic text-slate-600 dark:text-slate-400">"They've <b>already</b> arrived."</p>
-                                    <p class="text-[10px] text-slate-400 dark:text-slate-500">Ya han llegado.</p>
+                                    <p class="text-[14px] text-slate-400 dark:text-slate-500">Ya han llegado.</p>
                                 </td>
                             </tr>
                             <!-- YET -->
@@ -3550,7 +3989,7 @@
                                 <td class="p-6">
                                     <div class="flex flex-col">
                                         <span class="text-2xl font-black text-indigo-500 italic">YET</span>
-                                        <span class="text-[10px] font-bold text-slate-400 uppercase">"Aún no / ¿Ya?"</span>
+                                        <span class="text-[14px] font-bold text-slate-400 uppercase">"Aún no / ¿Ya?"</span>
                                     </div>
                                 </td>
                                 <td class="p-6 leading-relaxed">Algo que <span class="font-bold underline decoration-indigo-500 text-slate-800 dark:text-slate-200">todavía no ocurre</span>.</td>
@@ -3559,7 +3998,7 @@
                                 </td>
                                 <td class="p-6">
                                     <p class="text-xs italic text-slate-600 dark:text-slate-400">"He hasn't called <b>yet</b>."</p>
-                                    <p class="text-[10px] text-slate-400 dark:text-slate-500">Él no ha llamado aún.</p>
+                                    <p class="text-[14px] text-slate-400 dark:text-slate-500">Él no ha llamado aún.</p>
                                 </td>
                             </tr>
                         </tbody>
@@ -3582,17 +4021,17 @@
                     <div class="p-6 md:p-10 space-y-8">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div class="space-y-3">
-                                <span class="text-[10px] font-black text-amber-600 dark:text-amber-400 uppercase tracking-widest bg-amber-50 dark:bg-amber-900/20 px-2 py-1 rounded">Positivo (+)</span>
+                                <span class="text-[14px] font-black text-amber-600 dark:text-amber-400 uppercase tracking-widest bg-amber-50 dark:bg-amber-900/20 px-2 py-1 rounded">Positivo (+)</span>
                                 <p class="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border-l-4 border-amber-500 text-xs">Subj + <b>have/has</b> + <span class="text-amber-600">just</span> + Participle</p>
                                 <p class="text-sm italic text-slate-600 dark:text-slate-400">"I've <b>just</b> washed my hair."</p>
                             </div>
                             <div class="space-y-3">
-                                <span class="text-[10px] font-black text-rose-600 dark:text-rose-400 uppercase tracking-widest bg-rose-50 dark:bg-rose-900/20 px-2 py-1 rounded">Negativo (-)</span>
+                                <span class="text-[14px] font-black text-rose-600 dark:text-rose-400 uppercase tracking-widest bg-rose-50 dark:bg-rose-900/20 px-2 py-1 rounded">Negativo (-)</span>
                                 <p class="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border-l-4 border-rose-500 text-xs">Subj + <b>haven't/hasn't</b> + <span class="text-amber-600">just</span> + Participle</p>
                                 <p class="text-sm italic text-slate-600 dark:text-slate-400">"He hasn't <b>just</b> arrived."</p>
                             </div>
                             <div class="space-y-3">
-                                <span class="text-[10px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-widest bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded">Pregunta (?)</span>
+                                <span class="text-[14px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-widest bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded">Pregunta (?)</span>
                                 <p class="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border-l-4 border-indigo-500 text-xs"><b>Have/Has</b> + Subj + <span class="text-amber-600">just</span> + Participle?</p>
                                 <p class="text-sm italic text-slate-600 dark:text-slate-400">"Have you <b>just</b> started?"</p>
                             </div>
@@ -3627,16 +4066,16 @@
                     <div class="p-6 md:p-10 space-y-8">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div class="space-y-3">
-                                <span class="text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded">Positivo (+)</span>
+                                <span class="text-[14px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded">Positivo (+)</span>
                                 <p class="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border-l-4 border-blue-500 text-xs">Subj + <b>have/has</b> + <span class="text-blue-600">already</span> + Participle</p>
                                 <p class="text-sm italic text-slate-600 dark:text-slate-400">"I've <b>already</b> done it."</p>
                             </div>
                             <div class="space-y-3">
-                                <span class="text-[10px] font-black text-rose-600 dark:text-rose-400 uppercase tracking-widest bg-rose-50 dark:bg-rose-900/20 px-2 py-1 rounded">Negativo (-)</span>
+                                <span class="text-[14px] font-black text-rose-600 dark:text-rose-400 uppercase tracking-widest bg-rose-50 dark:bg-rose-900/20 px-2 py-1 rounded">Negativo (-)</span>
                                 <p class="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border-l-4 border-rose-500 text-xs text-slate-400">Poco común, se suele usar Yet.</p>
                             </div>
                             <div class="space-y-3">
-                                <span class="text-[10px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-widest bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded">Pregunta (?)</span>
+                                <span class="text-[14px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-widest bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded">Pregunta (?)</span>
                                 <p class="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border-l-4 border-indigo-500 text-xs"><b>Have/Has</b> + Subj + <span class="text-blue-600">already</span> + Participle?</p>
                                 <p class="text-sm italic text-slate-600 dark:text-slate-400">"Have you <b>already</b> eaten?"</p>
                             </div>
@@ -3672,16 +4111,16 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="space-y-3">
                                 <div class="flex items-center gap-2">
-                                    <span class="text-[10px] font-black text-rose-600 dark:text-rose-400 uppercase tracking-widest bg-rose-50 dark:bg-rose-900/20 px-2 py-1 rounded">Negativo (-)</span>
-                                    <span class="text-[10px] text-slate-400">"Todavía no"</span>
+                                    <span class="text-[14px] font-black text-rose-600 dark:text-rose-400 uppercase tracking-widest bg-rose-50 dark:bg-rose-900/20 px-2 py-1 rounded">Negativo (-)</span>
+                                    <span class="text-[14px] text-slate-400">"Todavía no"</span>
                                 </div>
                                 <p class="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border-l-4 border-rose-500 italic text-xs">Subj + <b>haven't/hasn't</b> + Part... + <span class="text-indigo-600 dark:text-indigo-400 font-bold">yet</span></p>
                                 <p class="text-sm italic text-slate-600 dark:text-slate-400">"I haven't been to the café <b>yet</b>."</p>
                             </div>
                             <div class="space-y-3">
                                 <div class="flex items-center gap-2">
-                                    <span class="text-[10px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-widest bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded">Pregunta (?)</span>
-                                    <span class="text-[10px] text-slate-400">"¿Ya...?"</span>
+                                    <span class="text-[14px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-widest bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded">Pregunta (?)</span>
+                                    <span class="text-[14px] text-slate-400">"¿Ya...?"</span>
                                 </div>
                                 <p class="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border-l-4 border-indigo-500 italic text-xs"><b>Have/Has</b> + Subj + Participle + <span class="text-indigo-600 dark:text-indigo-400 font-bold">yet</span>?</p>
                                 <p class="text-sm italic text-slate-600 dark:text-slate-400">"Have you seen that film <b>yet</b>?"</p>
@@ -3725,16 +4164,16 @@
                     <div class="col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="p-5 bg-white/5 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
                             <h5 class="text-xs font-black text-indigo-400 mb-2 uppercase italic tracking-widest underline underline-offset-4">Yet vs Already</h5>
-                            <p class="text-[11px] leading-relaxed opacity-80">
+                            <p class="text-[13px] leading-relaxed opacity-80">
                                 <strong>Yet</strong> es impaciente: esperas que pase. <br>
                                 <strong>Already</strong> es sorpresa: pasó antes de lo previsto.
                             </p>
                         </div>
                         <div class="p-5 bg-white/5 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
                             <h5 class="text-xs font-black text-rose-400 mb-2 uppercase italic tracking-widest underline underline-offset-4">Don't use them with...</h5>
-                            <p class="text-[11px] leading-relaxed font-bold text-rose-200">
+                            <p class="text-[13px] leading-relaxed font-bold text-rose-200">
                                 ¡Nunca los uses con "Yesterday" o "Two days ago"!
-                                <span class="block opacity-60 italic text-[10px] font-normal">Eso es Past Simple.</span>
+                                <span class="block opacity-60 italic text-[14px] font-normal">Eso es Past Simple.</span>
                             </p>
                         </div>
                     </div>
@@ -3753,7 +4192,7 @@
                         </p>
                         <div class="p-4 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border-l-4 border-amber-500 font-bold italic text-amber-700">
                             "No, thanks. I've <span class="underline">just</span> eaten."
-                            <p class="text-[10px] text-slate-400 mt-1 font-normal">(= Comí hace muy poquito tiempo).</p>
+                            <p class="text-[14px] text-slate-400 mt-1 font-normal">(= Comí hace muy poquito tiempo).</p>
                         </div>
                     </div>
                     <div class="w-full md:w-64 aspect-square bg-amber-200/50 dark:bg-amber-900/50 rounded-3xl flex items-center justify-center text-6xl text-amber-600 animate-pulse">
@@ -3769,7 +4208,7 @@
             return `
                 <div class="animate-content">
                     <div class="mb-8">
-                        <p class="text-[10px] font-black text-indigo-500 uppercase tracking-[0.3em] mb-1">${activeLevel} • ${unitLabel}</p>
+                        <p class="text-[14px] font-black text-indigo-500 uppercase tracking-[0.3em] mb-1">${activeLevel} • ${unitLabel}</p>
                         <h2 class="text-4xl font-extrabold text-slate-900 dark:text-white italic">${title}</h2>
                     </div>
                     <div class="bg-white dark:bg-slate-900 p-10 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm">
