@@ -75,6 +75,48 @@
             to { opacity: 1; transform: translateX(0); }
         }
         .animate-card { animation: slideIn 0.4s ease-out forwards; }
+           /* Corrección del colapso para evitar que se monten los textos */
+       
+        .accordion-content {
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+        }
+
+        .accordion-closed {
+            max-height: 0 !important;
+            opacity: 0;
+            pointer-events: none;
+            margin-bottom: 0 !important;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+
+        /* Estilo Activo Blanco en modo oscuro (según image_0cdac7.png) */
+ /* Estilo para el ítem seleccionado (La pastilla) */
+      .nav-item-active {
+            background-color: white !important;
+            color: #1e293b !important;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        /* CORRECCIÓN: Evitar que sea blanco en modo oscuro */
+        .dark .nav-item-active {
+            background-color: #1e293b !important; /* Gris oscuro profundo */
+            color: #f8fafc !important; /* Texto claro */
+            border: 1px solid #334155;
+            box-shadow: none;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; }
     </style>
 </head>
 <body class="text-slate-900 bg-slate-50 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
@@ -87,17 +129,16 @@
         <div id="sidebar-overlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 z-30 backdrop-blur-sm md:hidden"></div>
 
         <!-- Sidebar -->
-         <aside id="main-sidebar" class="fixed inset-y-0 left-0 w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col z-40 transition-transform duration-300 sidebar-closed md:relative md:translate-x-0">
-            <div class="p-8 pb-4">
-                <div class="flex items-center gap-3 mb-2">
-                    <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200 dark:shadow-none">
-                        <i class="fas fa-book-open"></i>
+         <aside id="main-sidebar" class="fixed inset-y-0 left-0 w-72 bg-[#fcfdfe] dark:bg-slate-900 border-r border-slate-100 dark:border-slate-800 flex flex-col z-40 transition-transform duration-300 md:relative md:translate-x-0">
+           <!-- Logo -->
+            <div class="p-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white shadow-lg shadow-indigo-200">
+                        <i class="fas fa-graduation-cap text-xs"></i>
                     </div>
-                    <h1 class="text-xl font-extrabold tracking-tight text-slate-800 dark:text-white uppercase">Master English</h1>
+                    <span class="text-xl font-extrabold text-slate-800 dark:text-white tracking-tight">Master English</span>
                 </div>
-                <p class="text-[13px] font-bold text-slate-400 uppercase tracking-[0.2em]">Repaso Personalizado</p>
             </div>
-
             <!-- Selector de Nivel -->
             <div class="px-6 mb-6">
                 <label class="block text-[14px] font-black text-slate-400 uppercase tracking-widest mb-2 px-2">Nivel Actual</label>
@@ -111,18 +152,18 @@
                 </div>
             </div>
         
-    <div class="flex-1 overflow-y-auto custom-scrollbar px-2">
+     <!-- Navegación -->
+            <div class="flex-1 overflow-y-auto custom-scrollbar px-4 pb-8">
             
             <!-- SECCIÓN REPASO -->
-        <div class="px-4">
-                <button onclick="toggleMenu('repasoMenu', 'repasoIcon')" 
-                    class="w-full flex items-center justify-between group py-3 px-2">
-                    <p class="text-[10px] font-black text-slate-500 group-hover:text-slate-300 uppercase tracking-[0.2em] transition-colors">Sección Repaso</p>
-                    <i id="repasoIcon" class="fas fa-chevron-down text-[10px] text-slate-600 rotate-icon"></i>
-                </button>
+         <div class="mb-4">
+                    <button onclick="toggleAccordion('repaso-content', 'repaso-chevron')" class="w-full flex items-center justify-between px-4 py-2 mb-2 group">
+                        <span class="text-[11px] font-black text-slate-400 uppercase tracking-widest group-hover:text-indigo-600 transition-colors">SECCIÓN REPASO</span>
+                        <i id="repaso-chevron" class="fas fa-chevron-down text-[10px] text-slate-400 transition-transform duration-300"></i>
+                    </button>
 
-            <div id="repasoMenu" class="menu-content space-y-1 px-2">           
-                 <button onclick="showSection('vocab')" id="btn-vocab" class="nav-item w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold text-slate-400 hover:bg-slate-800 hover:text-white transition-all text-left group">
+            <div id="repaso-content" class="accordion-content space-y-1 max-h-[500px]">      
+                    <button onclick="showSection('vocab')" id="btn-vocab" class="nav-item w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold text-slate-400 hover:bg-slate-800 hover:text-white transition-all text-left group">
                         <i class="fas fa-spell-check text-indigo-500 group-hover:scale-110 transition-transform"></i>
                         <span>Baúl de Vocabulario</span>
                     </button>
@@ -148,32 +189,31 @@
                     </button>
             </div>   
         </div>
-          
 
              <!-- PLAN DE ESTUDIOS -->
-        <div class="px-4 mt-2">
-                <button onclick="toggleMenu('planMenu', 'planIcon')" 
-                    class="w-full flex items-center justify-between group py-3 px-2">
-                    <p class="text-[10px] font-black text-slate-500 group-hover:text-slate-300 uppercase tracking-[0.2em] transition-colors">Plan de Estudios</p>
-                    <i id="planIcon" class="fas fa-chevron-down text-[10px] text-slate-600 rotate-icon"></i>
-                </button>
+      <div class="mt-8">
+                    <button onclick="toggleAccordion('plan-content', 'plan-chevron')" class="w-full flex items-center justify-between px-4 py-2 mb-2 group">
+                        <span class="text-[11px] font-black text-slate-400 uppercase tracking-widest group-hover:text-indigo-600 transition-colors">PLAN DE ESTUDIOS</span>
+                        <i id="plan-chevron" class="fas fa-chevron-down text-[10px] text-slate-400 transition-transform duration-300"></i>
+                    </button>
 
-            <div id="planMenu" class="menu-content">
-                 <div class="px-4 mb-4 mt-2">
-                        <h2 class="text-[12px] font-extrabold text-slate-500 uppercase tracking-widest">Contenido</h2>
-                    </div>
-
-            <nav class="flex-1 overflow-y-auto custom-scrollbar px-6 pb-8 space-y-1" id="unit-list">
+            <div id="plan-content" class="accordion-content space-y-4 ">
+                <div class="px-4 ">
+                <h3 class="text-[10px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest mb-4">CONTENIDO</h3>
+                </div>
+                <nav class="flex-1 overflow-y-auto custom-scrollbar px-6 pb-8 space-y-1" id="unit-list">
                 <!-- Unidades dinámicas -->
-            </nav>
+                </nav>
             </div>
         </div>
     </div>
             <!-- Theme Toggle -->
-            <div class="dark:bg-slate-800 p-6 border-t border-slate-100 dark:border-slate-800 space-y-4">
-                <button onclick="toggleDarkMode()" class="w-full flex items-center justify-between px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-sm font-bold text-slate-600 dark:text-slate-300 hover:ring-2 hover:ring-indigo-400 transition-all">
-                    <span id="theme-text">Modo Oscuro</span>
-                    <i id="theme-icon" class="fas fa-moon text-indigo-500"></i>
+             <div class="mt-auto p-4 border-t border-slate-100 dark:border-slate-800">
+                <button id="theme-toggle" class=" dark:bg-slate-900 w-full flex items-center justify-between px-4 py-2.5 bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl transition-all group">
+                    <span id="theme-text" class="text-xs font-bold text-slate-500 dark:text-slate-400">Modo Oscuro</span>
+                    <div class="w-7 h-7 flex items-center justify-center rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 shadow-sm">
+                        <i id="theme-icon" class="fas fa-moon text-indigo-500 text-xs transition-transform group-hover:scale-110"></i>
+                    </div>
                 </button>
             </div>
         </aside>
@@ -4358,6 +4398,45 @@ if (percent >= 90) {
                 container.appendChild(div);
             });
         }
+
+
+        /**
+         * Accordion Logic
+         */
+        function toggleAccordion(contentId, iconId) {
+            const content = document.getElementById(contentId);
+            const icon = document.getElementById(iconId);
+            
+            content.classList.toggle('accordion-closed');
+            
+            if (content.classList.contains('accordion-closed')) {
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+// Lógica del Modo Oscuro
+    
+ const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+        const html = document.documentElement;
+
+ themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                // Cambiar a Modo Claro
+                html.classList.remove('dark');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                themeIcon.classList.replace('text-amber-400', 'text-indigo-500'); // De amarillo a indigo
+                themeText.innerText = "Modo Oscuro";
+            } else {
+                // Cambiar a Modo Oscuro
+                html.classList.add('dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                themeIcon.classList.replace('text-indigo-500', 'text-amber-400'); // De indigo a amarillo
+                themeText.innerText = "Modo Claro";
+            }
+        });
 
         window.onload = init;
     </script>
