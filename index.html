@@ -126,10 +126,11 @@
             <i class="fas fa-bars" id="menu-icon-toggle"></i>
         </button>
 
+     <!-- Overlay: 'hidden' por defecto -->
         <div id="sidebar-overlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 z-30 backdrop-blur-sm md:hidden"></div>
 
-        <!-- Sidebar -->
-         <aside id="main-sidebar" class="fixed inset-y-0 left-0 w-72 bg-[#fcfdfe] dark:bg-slate-900 border-r border-slate-100 dark:border-slate-800 flex flex-col z-40 transition-transform duration-300 md:relative md:translate-x-0">
+        <!-- Sidebar: '-translate-x-full' para que inicie CERRADO en móviles -->
+        <aside id="main-sidebar" class="fixed inset-y-0 left-0 w-72 bg-white dark:bg-slate-900 border-r border-slate-100 dark:border-slate-800 flex flex-col z-40 transition-transform duration-300 -translate-x-full md:relative md:translate-x-0">
            <!-- Logo -->
             <div class="p-8">
                 <div class="flex items-center gap-3">
@@ -624,16 +625,32 @@
         }
   // --- FUNCIONES DE NAVEGACIÓN MÓVIL ---
         
-        function toggleSidebar() {
+function toggleSidebar() {
             const sidebar = document.getElementById('main-sidebar');
             const overlay = document.getElementById('sidebar-overlay');
-            const icon = document.getElementById('menu-icon-toggle');
-            isSidebarOpen = !isSidebarOpen;
-            sidebar.classList.toggle('sidebar-open', isSidebarOpen);
-            sidebar.classList.toggle('sidebar-closed', !isSidebarOpen);
-            overlay.classList.toggle('hidden', !isSidebarOpen);
-            icon.classList.replace(isSidebarOpen ? 'fa-bars' : 'fa-times', isSidebarOpen ? 'fa-times' : 'fa-bars');
+            const menuIcon = document.getElementById('menu-icon-toggle');
+
+            // Toggle la clase de Tailwind que mueve el menú
+            // Si tiene -translate-x-full, la quitamos y ponemos translate-x-0
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                overlay.classList.remove('hidden');
+                
+                // Cambiamos icono a la "X"
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                sidebar.classList.remove('translate-x-0');
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+                
+                // Cambiamos icono a "Barras"
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
         }
+
 
         function renderUnitList() {
             const unitList = document.getElementById('unit-list');
