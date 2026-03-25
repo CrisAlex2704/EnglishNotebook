@@ -1108,14 +1108,30 @@ function toggleSidebar() {
 function renderSurvivalKit() {
     const area = document.getElementById('content-area');
     
-   
-
+    // Asumimos que 'phrases' es tu array de datos global
     const categories = ['Todos', ...new Set(phrases.map(p => p.cat))];
     let currentCategory = 'Todos';
     let searchQuery = '';
 
     const renderList = () => {
         const grid = document.getElementById('phrases-grid');
+        const tabsContainer = document.getElementById('tabs-container');
+
+        // 1. Actualizar Visualización de Tabs
+        tabsContainer.innerHTML = categories.map(cat => {
+            const isActive = cat === currentCategory;
+            return `
+                <button class="cat-tab px-6 py-2.5 rounded-xl font-bold text-sm whitespace-nowrap transition-all duration-300
+                    ${isActive 
+                        ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/20' 
+                        : 'bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-50'}"
+                    onclick="window.setCategory('${cat}')">
+                    ${cat}
+                </button>
+            `;
+        }).join('');
+
+        // 2. Filtrar Frases
         const filtered = phrases.filter(p => {
             const matchesCat = currentCategory === 'Todos' || p.cat === currentCategory;
             const matchesSearch = p.en.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -1123,16 +1139,20 @@ function renderSurvivalKit() {
             return matchesCat && matchesSearch;
         });
 
+        // 3. Renderizar Grid
         if (filtered.length === 0) {
-            grid.innerHTML = `<div class="col-span-full py-20 text-center opacity-50"><p class="text-xl">No hay coincidencias.</p></div>`;
+            grid.innerHTML = `
+                <div class="col-span-full py-20 text-center opacity-50">
+                    <p class="text-xl font-medium text-slate-400">No se encontraron frases.</p>
+                </div>`;
             return;
         }
 
         grid.innerHTML = filtered.map(p => `
             <div class="group bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden">
                 <div class="flex items-center justify-between mb-6">
-                    <div class="w-12 h-12 rounded-2xl bg-${p.color}-50 dark:bg-${p.color}-900/20 text-${p.color}-500 flex items-center justify-center text-xl">
-                        <i class="fas ${p.icon}"></i>
+                    <div class="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800 text-indigo-500 flex items-center justify-center text-xl">
+                        <i class="fas ${p.icon || 'fa-lightbulb'}"></i>
                     </div>
                     <button onclick="speak('${p.en.replace(/'/g, "\\'")}', this)" 
                             class="audio-btn w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 hover:bg-emerald-500 hover:text-white transition-all flex items-center justify-center shadow-inner">
@@ -1141,27 +1161,31 @@ function renderSurvivalKit() {
                 </div>
                 
                 <div class="space-y-4">
-                    <h3 class="text-xl font-bold text-slate-800 dark:text-white leading-snug italic group-hover:text-${p.color}-600 transition-colors">
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white leading-snug italic">
                         "${p.en}"
                     </h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
+                    <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
                         ${p.es}
                     </p>
                 </div>
                 
-                <div class="mt-4 flex items-center gap-2">
-                     <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 text-[9px] font-black uppercase text-slate-400 tracking-widest">
+                <div class="mt-6">
+                     <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 text-[10px] font-black uppercase text-slate-400 tracking-widest">
                         ${p.cat}
                     </span>
                 </div>
-
-                <div class="absolute -right-2 -bottom-2 w-24 h-24 bg-${p.color}-500/5 rounded-full blur-2xl"></div>
             </div>
         `).join('');
     };
 
+    // Funciones globales para los eventos onclick del HTML generado
+    window.setCategory = (cat) => {
+        currentCategory = cat;
+        renderList();
+    };
+
     area.innerHTML = `
-        <div class="max-w-6xl mx-auto space-y-8 animate-content">
+        <div class="max-w-6xl mx-auto space-y-8 animate-content pb-20">
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div class="space-y-2">
                     <h2 class="text-5xl font-black text-slate-900 dark:text-white tracking-tight">Survival Kit</h2>
@@ -1170,48 +1194,40 @@ function renderSurvivalKit() {
                 <div class="relative w-full md:w-80">
                     <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"></i>
                     <input type="text" id="phrase-search" placeholder="Buscar frase..." 
-                        class="w-full pl-12 pr-6 py-4 bg-white dark:bg-slate-900 border-2 border-slate-100 dark:border-slate-800 rounded-2xl focus:border-emerald-500 outline-none transition-all font-medium">
+                        class="w-full pl-12 pr-6 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all font-medium">
                 </div>
             </div>
 
-            <div class="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
-                ${categories.map(cat => `
-                    <button class="cat-tab px-6 py-2.5 rounded-xl font-bold text-sm whitespace-nowrap transition-all
-                        ${cat === 'Todos' ? 'bg-slate-900 text-white dark:bg-emerald-500 shadow-lg' : 'bg-white dark:bg-slate-900 text-slate-50'}"
-                        data-category="${cat}">
-                        ${cat}
-                    </button>
-                `).join('')}
-            </div>
+            <!-- Contenedor de Tabs Dinámico -->
+            <div id="tabs-container" class="flex gap-2 overflow-x-auto pb-2 no-scrollbar"></div>
 
             <div id="phrases-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </div>
         
         <style>
+            .no-scrollbar::-webkit-scrollbar { display: none; }
+            .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+            
             @keyframes pulse-audio {
-                0% { transform: scale(1); opacity: 1; }
-                50% { transform: scale(1.2); opacity: 0.7; color: #10b981; }
-                100% { transform: scale(1); opacity: 1; }
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); color: #10b981; }
+                100% { transform: scale(1); }
             }
             .audio-loading i {
-                animation: pulse-audio 1s infinite ease-in-out;
+                animation: pulse-audio 0.8s infinite ease-in-out;
             }
         </style>
     `;
 
-    // Listeners para búsqueda y tabs
-    document.getElementById('phrase-search').oninput = (e) => { searchQuery = e.target.value; renderList(); };
-    document.querySelectorAll('.cat-tab').forEach(tab => {
-        tab.onclick = () => {
-            currentCategory = tab.dataset.category;
-            renderList();
-            // Actualizar estilos de tabs aquí si es necesario
-        };
+    // Listener para búsqueda
+    document.getElementById('phrase-search').addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        renderList();
     });
 
+    // Renderizado inicial
     renderList();
 }
-
 
 function renderPracticeMenu(container) {
             const modes = [
